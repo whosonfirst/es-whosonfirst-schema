@@ -459,7 +459,8 @@
           "type" : "long"
         },
         "wof:name" : {
-          "type" : "string"
+          "type" : "string",
+          "index" : "not_analyzed"
         },
         "wof:parent_id" : {
           "type" : "string"
@@ -6063,7 +6064,8 @@
           "type" : "long"
         },
         "wof:name" : {
-          "type" : "string"
+          "type" : "string",
+          "index" : "not_analyzed"
         },
         "wof:parent_id" : {
           "type" : "string"
@@ -6134,7 +6136,8 @@
           "type" : "long"
         },
         "wof:name" : {
-          "type" : "string"
+          "type" : "string",
+          "index" : "not_analyzed"
         },
         "wof:parent_id" : {
           "type" : "string"
@@ -6248,7 +6251,8 @@
           "type" : "long"
         },
         "wof:name" : {
-          "type" : "string"
+          "type" : "string",
+          "index" : "not_analyzed"
         },
         "wof:parent_id" : {
           "type" : "string"
