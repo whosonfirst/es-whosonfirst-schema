@@ -2,6 +2,13 @@
   "mappings" : {
     "locality" : {
       "properties" : {
+        "names_all" : {
+          "type" : "string"
+        },
+        "name_not_analyzed" : {
+          "type" : "string",
+          "index" : "not_analyzed"
+        },
         "edtf:cessation" : {
           "type" : "string"
         },
@@ -69,193 +76,256 @@
           "type" : "string"
         },
         "name:ara_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:chi_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:chi_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:cze_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:cze_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:cze_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:dan_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:dan_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:dan_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:dut_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:dut_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:dut_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:eng_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:eng_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:eng_x_unknown" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:eng_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:fin_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:fin_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:fin_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:fre_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:fre_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:fre_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:ger_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:ger_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:ger_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:hun_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:hun_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:hun_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:ita_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:ita_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:ita_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:jpn_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:jpn_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:kor_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:kor_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:kor_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:nor_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:nor_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:nor_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:pol_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:pol_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:pol_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:por_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:por_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:por_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:rum_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:rum_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:rum_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:spa_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:spa_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:spa_x_unknown" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:spa_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:swe_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:swe_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:swe_x_unknown" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:swe_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:und_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:und_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:und_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name_unknown" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "qs:a0" : {
           "type" : "string"
@@ -425,7 +495,8 @@
           "type" : "long"
         },
         "wof:name" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : [ "names_all", "name_not_analyzed" ]
         },
         "wof:parent_id" : {
           "type" : "string"
@@ -455,6 +526,13 @@
     },
     "neighbourhood" : {
       "properties" : {
+        "names_all" : {
+          "type" : "string"
+        },
+        "name_not_analyzed" : {
+          "type" : "string",
+          "index" : "not_analyzed"
+        },
         "edtf:cessation" : {
           "type" : "string"
         },
@@ -606,196 +684,260 @@
           "type" : "string"
         },
         "name:ara_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:ara_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:ara_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:chi_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:chi_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:cze_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:cze_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:cze_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:dan_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:dan_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:dan_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:dut_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:dut_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:dut_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:eng_p" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:eng_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:eng_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:eng_x_unknown" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:eng_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:fin_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:fin_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:fin_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:fre_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:fre_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:fre_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:ger_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:ger_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:ger_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:hun_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:hun_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:hun_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:ita_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:ita_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:ita_x_unknown" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:ita_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:jpn_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:jpn_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:kor_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:kor_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:nor_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:nor_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:nor_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:pol_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:pol_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:pol_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:por_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:por_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:por_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:rum_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:rum_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:rum_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:spa_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:spa_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:spa_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:swe_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:swe_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:swe_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:und_x_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:und_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name:und_x_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name_colloquial" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name_unknown" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name_variant" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "qs:id" : {
           "type" : "string"
@@ -914,7 +1056,8 @@
           "type" : "long"
         },
         "wof:name" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : [ "names_all", "name_not_analyzed" ]
         },
         "wof:parent_id" : {
           "type" : "string"
@@ -6098,6 +6241,13 @@
     },
     "venue" : {
       "properties" : {
+        "names_all" : {
+          "type" : "string"
+        },
+        "name_not_analyzed" : {
+          "type" : "string",
+          "index" : "not_analyzed"
+        },
         "edtf:cessation" : {
           "type" : "string"
         },
@@ -6142,7 +6292,8 @@
           "type" : "long"
         },
         "wof:name" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : [ "names_all", "name_not_analyzed" ]
         },
         "wof:parent_id" : {
           "type" : "string"
@@ -6157,6 +6308,13 @@
     },
     "microhood" : {
       "properties" : {
+        "names_all" : {
+          "type" : "string"
+        },
+        "name_not_analyzed" : {
+          "type" : "string",
+          "index" : "not_analyzed"
+        },
         "bbox" : {
           "type" : "double"
         },
@@ -6213,10 +6371,12 @@
           "type" : "double"
         },
         "name:eng_x_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "name_preferred" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : "names_all"
         },
         "properties" : {
           "properties" : {
@@ -6248,7 +6408,8 @@
               "type" : "double"
             },
             "name:eng_x_preferred" : {
-              "type" : "string"
+              "type" : "string",
+              "copy_to" : "names_all"
             },
             "src:geom" : {
               "type" : "string"
@@ -6297,7 +6458,8 @@
               "type" : "long"
             },
             "wof:name" : {
-              "type" : "string"
+              "type" : "string",
+              "copy_to" : [ "names_all", "name_not_analyzed" ]
             },
             "wof:parent_id" : {
               "type" : "long"
@@ -6366,7 +6528,8 @@
           "type" : "long"
         },
         "wof:name" : {
-          "type" : "string"
+          "type" : "string",
+          "copy_to" : [ "names_all", "name_not_analyzed" ]
         },
         "wof:parent_id" : {
           "type" : "string"
