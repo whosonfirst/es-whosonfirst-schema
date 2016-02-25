@@ -1,6 +1,6 @@
 {
   "mappings" : {
-    "neighbourhood" : {
+    "locality" : {
       "properties" : {
         "edtf:cessation" : {
           "type" : "string"
@@ -8,7 +8,460 @@
         "edtf:inception" : {
           "type" : "string"
         },
+        "geom:area" : {
+          "type" : "double"
+        },
+        "geom:bbox" : {
+          "type" : "string"
+        },
+        "geom:latitude" : {
+          "type" : "double"
+        },
+        "geom:longitude" : {
+          "type" : "double"
+        },
+        "geom:type" : {
+          "type" : "string"
+        },
+        "geonames:id" : {
+          "type" : "string"
+        },
+        "gn:elevation" : {
+          "type" : "long"
+        },
+        "gn:id" : {
+          "type" : "long"
+        },
+        "gn:latitude" : {
+          "type" : "string"
+        },
+        "gn:longitude" : {
+          "type" : "string"
+        },
+        "gn:population" : {
+          "type" : "long"
+        },
+        "iso:country" : {
+          "type" : "string"
+        },
+        "lbl:latitude" : {
+          "type" : "double"
+        },
+        "lbl:longitude" : {
+          "type" : "double"
+        },
+        "mps:latitude" : {
+          "type" : "double"
+        },
+        "mps:longitude" : {
+          "type" : "double"
+        },
+        "mz:is_funky" : {
+          "type" : "string"
+        },
+        "mz:is_landuse_aoi" : {
+          "type" : "string"
+        },
+        "mz:max_zoom" : {
+          "type" : "string"
+        },
+        "mz:min_zoom" : {
+          "type" : "string"
+        },
+        "name:ara_x_variant" : {
+          "type" : "string"
+        },
+        "name:chi_x_preferred" : {
+          "type" : "string"
+        },
+        "name:chi_x_variant" : {
+          "type" : "string"
+        },
+        "name:cze_x_colloquial" : {
+          "type" : "string"
+        },
+        "name:cze_x_preferred" : {
+          "type" : "string"
+        },
+        "name:cze_x_variant" : {
+          "type" : "string"
+        },
+        "name:dan_x_colloquial" : {
+          "type" : "string"
+        },
+        "name:dan_x_preferred" : {
+          "type" : "string"
+        },
+        "name:dan_x_variant" : {
+          "type" : "string"
+        },
+        "name:dut_x_colloquial" : {
+          "type" : "string"
+        },
+        "name:dut_x_preferred" : {
+          "type" : "string"
+        },
+        "name:dut_x_variant" : {
+          "type" : "string"
+        },
+        "name:eng_x_colloquial" : {
+          "type" : "string"
+        },
+        "name:eng_x_preferred" : {
+          "type" : "string"
+        },
+        "name:eng_x_unknown" : {
+          "type" : "string"
+        },
+        "name:eng_x_variant" : {
+          "type" : "string"
+        },
+        "name:fin_x_colloquial" : {
+          "type" : "string"
+        },
+        "name:fin_x_preferred" : {
+          "type" : "string"
+        },
+        "name:fin_x_variant" : {
+          "type" : "string"
+        },
+        "name:fre_x_colloquial" : {
+          "type" : "string"
+        },
+        "name:fre_x_preferred" : {
+          "type" : "string"
+        },
+        "name:fre_x_variant" : {
+          "type" : "string"
+        },
+        "name:ger_x_colloquial" : {
+          "type" : "string"
+        },
+        "name:ger_x_preferred" : {
+          "type" : "string"
+        },
+        "name:ger_x_variant" : {
+          "type" : "string"
+        },
+        "name:hun_x_colloquial" : {
+          "type" : "string"
+        },
+        "name:hun_x_preferred" : {
+          "type" : "string"
+        },
+        "name:hun_x_variant" : {
+          "type" : "string"
+        },
+        "name:ita_x_colloquial" : {
+          "type" : "string"
+        },
+        "name:ita_x_preferred" : {
+          "type" : "string"
+        },
+        "name:ita_x_variant" : {
+          "type" : "string"
+        },
+        "name:jpn_x_preferred" : {
+          "type" : "string"
+        },
+        "name:jpn_x_variant" : {
+          "type" : "string"
+        },
+        "name:kor_x_colloquial" : {
+          "type" : "string"
+        },
+        "name:kor_x_preferred" : {
+          "type" : "string"
+        },
+        "name:kor_x_variant" : {
+          "type" : "string"
+        },
+        "name:nor_x_colloquial" : {
+          "type" : "string"
+        },
+        "name:nor_x_preferred" : {
+          "type" : "string"
+        },
+        "name:nor_x_variant" : {
+          "type" : "string"
+        },
+        "name:pol_x_colloquial" : {
+          "type" : "string"
+        },
+        "name:pol_x_preferred" : {
+          "type" : "string"
+        },
+        "name:pol_x_variant" : {
+          "type" : "string"
+        },
+        "name:por_x_colloquial" : {
+          "type" : "string"
+        },
+        "name:por_x_preferred" : {
+          "type" : "string"
+        },
+        "name:por_x_variant" : {
+          "type" : "string"
+        },
+        "name:rum_x_colloquial" : {
+          "type" : "string"
+        },
+        "name:rum_x_preferred" : {
+          "type" : "string"
+        },
+        "name:rum_x_variant" : {
+          "type" : "string"
+        },
+        "name:spa_x_colloquial" : {
+          "type" : "string"
+        },
+        "name:spa_x_preferred" : {
+          "type" : "string"
+        },
+        "name:spa_x_unknown" : {
+          "type" : "string"
+        },
+        "name:spa_x_variant" : {
+          "type" : "string"
+        },
+        "name:swe_x_colloquial" : {
+          "type" : "string"
+        },
+        "name:swe_x_preferred" : {
+          "type" : "string"
+        },
+        "name:swe_x_unknown" : {
+          "type" : "string"
+        },
+        "name:swe_x_variant" : {
+          "type" : "string"
+        },
+        "name:und_x_colloquial" : {
+          "type" : "string"
+        },
+        "name:und_x_preferred" : {
+          "type" : "string"
+        },
+        "name:und_x_variant" : {
+          "type" : "string"
+        },
+        "name_colloquial" : {
+          "type" : "string"
+        },
+        "name_preferred" : {
+          "type" : "string"
+        },
+        "name_unknown" : {
+          "type" : "string"
+        },
+        "name_variant" : {
+          "type" : "string"
+        },
+        "qs:a0" : {
+          "type" : "string"
+        },
+        "qs:a0_lc" : {
+          "type" : "string"
+        },
+        "qs:a1" : {
+          "type" : "string"
+        },
+        "qs:a1_alt" : {
+          "type" : "string"
+        },
+        "qs:a1_lc" : {
+          "type" : "string"
+        },
+        "qs:a1r" : {
+          "type" : "string"
+        },
+        "qs:a1r_lc" : {
+          "type" : "string"
+        },
+        "qs:a2" : {
+          "type" : "string"
+        },
+        "qs:a2_alt" : {
+          "type" : "string"
+        },
+        "qs:a2_lc" : {
+          "type" : "string"
+        },
+        "qs:a2r" : {
+          "type" : "string"
+        },
+        "qs:adm0" : {
+          "type" : "string"
+        },
+        "qs:id" : {
+          "type" : "string"
+        },
+        "qs:la" : {
+          "type" : "string"
+        },
+        "qs:la_lc" : {
+          "type" : "string"
+        },
+        "qs:level" : {
+          "type" : "string"
+        },
+        "qs:loc" : {
+          "type" : "string"
+        },
+        "qs:loc_alt" : {
+          "type" : "string"
+        },
+        "qs:loc_lc" : {
+          "type" : "string"
+        },
+        "qs:pop" : {
+          "type" : "string"
+        },
+        "qs:source" : {
+          "type" : "string"
+        },
+        "qs:type" : {
+          "type" : "string"
+        },
+        "src:geom" : {
+          "type" : "string"
+        },
+        "src:lbl:centroid" : {
+          "type" : "string"
+        },
+        "wof:belongsto" : {
+          "type" : "long"
+        },
+        "wof:breaches" : {
+          "type" : "long"
+        },
+        "wof:concordances" : {
+          "properties" : {
+            "dbp:id" : {
+              "type" : "string"
+            },
+            "fb:id" : {
+              "type" : "string"
+            },
+            "fct:id" : {
+              "type" : "string"
+            },
+            "gn:id" : {
+              "type" : "long"
+            },
+            "gp:id" : {
+              "type" : "long"
+            },
+            "loc:id" : {
+              "type" : "string"
+            },
+            "nyt:id" : {
+              "type" : "string"
+            },
+            "qs:id" : {
+              "type" : "string"
+            },
+            "tgn:id" : {
+              "type" : "string"
+            },
+            "wd:id" : {
+              "type" : "string"
+            }
+          }
+        },
+        "wof:concordances_count" : {
+          "type" : "string"
+        },
+        "wof:country" : {
+          "type" : "string"
+        },
+        "wof:geomhash" : {
+          "type" : "string"
+        },
+        "wof:hierarchy" : {
+          "properties" : {
+            "continent_id" : {
+              "type" : "long"
+            },
+            "country_id" : {
+              "type" : "long"
+            },
+            "county_id" : {
+              "type" : "long"
+            },
+            "dependency_id" : {
+              "type" : "string"
+            },
+            "disputed_id" : {
+              "type" : "string"
+            },
+            "localadmin_id" : {
+              "type" : "string"
+            },
+            "locality_id" : {
+              "type" : "long"
+            },
+            "macrocounty_id" : {
+              "type" : "string"
+            },
+            "macroregion_id" : {
+              "type" : "string"
+            },
+            "region_id" : {
+              "type" : "long"
+            }
+          }
+        },
+        "wof:id" : {
+          "type" : "long"
+        },
+        "wof:lang" : {
+          "type" : "string"
+        },
+        "wof:lastmodified" : {
+          "type" : "long"
+        },
+        "wof:megacity" : {
+          "type" : "long"
+        },
+        "wof:name" : {
+          "type" : "string"
+        },
+        "wof:parent_id" : {
+          "type" : "string"
+        },
+        "wof:placetype" : {
+          "type" : "string"
+        },
+        "wof:placetype_id" : {
+          "type" : "long"
+        },
+        "wof:scale" : {
+          "type" : "long"
+        },
+        "wof:supersedes" : {
+          "type" : "long"
+        },
+        "zs:blockids" : {
+          "type" : "string"
+        },
+        "zs:housing10" : {
+          "type" : "string"
+        },
+        "zs:pop10" : {
+          "type" : "long"
+        }
+      }
+    },
+    "neighbourhood" : {
+      "properties" : {
+        "edtf:cessation" : {
+          "type" : "string"
+        },
         "edtf:deprecated" : {
+          "type" : "string"
+        },
+        "edtf:inception" : {
           "type" : "string"
         },
         "geom:area" : {
@@ -461,8 +914,7 @@
           "type" : "long"
         },
         "wof:name" : {
-          "type" : "string",
-          "index" : "not_analyzed"
+          "type" : "string"
         },
         "wof:parent_id" : {
           "type" : "string"
@@ -5644,460 +6096,6 @@
         }
       }
     },
-    "locality" : {
-      "properties" : {
-        "edtf:cessation" : {
-          "type" : "string"
-        },
-        "edtf:inception" : {
-          "type" : "string"
-        },
-        "geom:area" : {
-          "type" : "double"
-        },
-        "geom:bbox" : {
-          "type" : "string"
-        },
-        "geom:latitude" : {
-          "type" : "double"
-        },
-        "geom:longitude" : {
-          "type" : "double"
-        },
-        "geom:type" : {
-          "type" : "string"
-        },
-        "geonames:id" : {
-          "type" : "string"
-        },
-        "gn:elevation" : {
-          "type" : "long"
-        },
-        "gn:id" : {
-          "type" : "long"
-        },
-        "gn:latitude" : {
-          "type" : "string"
-        },
-        "gn:longitude" : {
-          "type" : "string"
-        },
-        "gn:population" : {
-          "type" : "long"
-        },
-        "iso:country" : {
-          "type" : "string"
-        },
-        "lbl:latitude" : {
-          "type" : "double"
-        },
-        "lbl:longitude" : {
-          "type" : "double"
-        },
-        "mps:latitude" : {
-          "type" : "double"
-        },
-        "mps:longitude" : {
-          "type" : "double"
-        },
-        "mz:is_funky" : {
-          "type" : "string"
-        },
-        "mz:is_landuse_aoi" : {
-          "type" : "string"
-        },
-        "mz:max_zoom" : {
-          "type" : "string"
-        },
-        "mz:min_zoom" : {
-          "type" : "string"
-        },
-        "name:ara_x_variant" : {
-          "type" : "string"
-        },
-        "name:chi_x_preferred" : {
-          "type" : "string"
-        },
-        "name:chi_x_variant" : {
-          "type" : "string"
-        },
-        "name:cze_x_colloquial" : {
-          "type" : "string"
-        },
-        "name:cze_x_preferred" : {
-          "type" : "string"
-        },
-        "name:cze_x_variant" : {
-          "type" : "string"
-        },
-        "name:dan_x_colloquial" : {
-          "type" : "string"
-        },
-        "name:dan_x_preferred" : {
-          "type" : "string"
-        },
-        "name:dan_x_variant" : {
-          "type" : "string"
-        },
-        "name:dut_x_colloquial" : {
-          "type" : "string"
-        },
-        "name:dut_x_preferred" : {
-          "type" : "string"
-        },
-        "name:dut_x_variant" : {
-          "type" : "string"
-        },
-        "name:eng_x_colloquial" : {
-          "type" : "string"
-        },
-        "name:eng_x_preferred" : {
-          "type" : "string"
-        },
-        "name:eng_x_unknown" : {
-          "type" : "string"
-        },
-        "name:eng_x_variant" : {
-          "type" : "string"
-        },
-        "name:fin_x_colloquial" : {
-          "type" : "string"
-        },
-        "name:fin_x_preferred" : {
-          "type" : "string"
-        },
-        "name:fin_x_variant" : {
-          "type" : "string"
-        },
-        "name:fre_x_colloquial" : {
-          "type" : "string"
-        },
-        "name:fre_x_preferred" : {
-          "type" : "string"
-        },
-        "name:fre_x_variant" : {
-          "type" : "string"
-        },
-        "name:ger_x_colloquial" : {
-          "type" : "string"
-        },
-        "name:ger_x_preferred" : {
-          "type" : "string"
-        },
-        "name:ger_x_variant" : {
-          "type" : "string"
-        },
-        "name:hun_x_colloquial" : {
-          "type" : "string"
-        },
-        "name:hun_x_preferred" : {
-          "type" : "string"
-        },
-        "name:hun_x_variant" : {
-          "type" : "string"
-        },
-        "name:ita_x_colloquial" : {
-          "type" : "string"
-        },
-        "name:ita_x_preferred" : {
-          "type" : "string"
-        },
-        "name:ita_x_variant" : {
-          "type" : "string"
-        },
-        "name:jpn_x_preferred" : {
-          "type" : "string"
-        },
-        "name:jpn_x_variant" : {
-          "type" : "string"
-        },
-        "name:kor_x_colloquial" : {
-          "type" : "string"
-        },
-        "name:kor_x_preferred" : {
-          "type" : "string"
-        },
-        "name:kor_x_variant" : {
-          "type" : "string"
-        },
-        "name:nor_x_colloquial" : {
-          "type" : "string"
-        },
-        "name:nor_x_preferred" : {
-          "type" : "string"
-        },
-        "name:nor_x_variant" : {
-          "type" : "string"
-        },
-        "name:pol_x_colloquial" : {
-          "type" : "string"
-        },
-        "name:pol_x_preferred" : {
-          "type" : "string"
-        },
-        "name:pol_x_variant" : {
-          "type" : "string"
-        },
-        "name:por_x_colloquial" : {
-          "type" : "string"
-        },
-        "name:por_x_preferred" : {
-          "type" : "string"
-        },
-        "name:por_x_variant" : {
-          "type" : "string"
-        },
-        "name:rum_x_colloquial" : {
-          "type" : "string"
-        },
-        "name:rum_x_preferred" : {
-          "type" : "string"
-        },
-        "name:rum_x_variant" : {
-          "type" : "string"
-        },
-        "name:spa_x_colloquial" : {
-          "type" : "string"
-        },
-        "name:spa_x_preferred" : {
-          "type" : "string"
-        },
-        "name:spa_x_unknown" : {
-          "type" : "string"
-        },
-        "name:spa_x_variant" : {
-          "type" : "string"
-        },
-        "name:swe_x_colloquial" : {
-          "type" : "string"
-        },
-        "name:swe_x_preferred" : {
-          "type" : "string"
-        },
-        "name:swe_x_unknown" : {
-          "type" : "string"
-        },
-        "name:swe_x_variant" : {
-          "type" : "string"
-        },
-        "name:und_x_colloquial" : {
-          "type" : "string"
-        },
-        "name:und_x_preferred" : {
-          "type" : "string"
-        },
-        "name:und_x_variant" : {
-          "type" : "string"
-        },
-        "name_colloquial" : {
-          "type" : "string"
-        },
-        "name_preferred" : {
-          "type" : "string"
-        },
-        "name_unknown" : {
-          "type" : "string"
-        },
-        "name_variant" : {
-          "type" : "string"
-        },
-        "qs:a0" : {
-          "type" : "string"
-        },
-        "qs:a0_lc" : {
-          "type" : "string"
-        },
-        "qs:a1" : {
-          "type" : "string"
-        },
-        "qs:a1_alt" : {
-          "type" : "string"
-        },
-        "qs:a1_lc" : {
-          "type" : "string"
-        },
-        "qs:a1r" : {
-          "type" : "string"
-        },
-        "qs:a1r_lc" : {
-          "type" : "string"
-        },
-        "qs:a2" : {
-          "type" : "string"
-        },
-        "qs:a2_alt" : {
-          "type" : "string"
-        },
-        "qs:a2_lc" : {
-          "type" : "string"
-        },
-        "qs:a2r" : {
-          "type" : "string"
-        },
-        "qs:adm0" : {
-          "type" : "string"
-        },
-        "qs:id" : {
-          "type" : "string"
-        },
-        "qs:la" : {
-          "type" : "string"
-        },
-        "qs:la_lc" : {
-          "type" : "string"
-        },
-        "qs:level" : {
-          "type" : "string"
-        },
-        "qs:loc" : {
-          "type" : "string"
-        },
-        "qs:loc_alt" : {
-          "type" : "string"
-        },
-        "qs:loc_lc" : {
-          "type" : "string"
-        },
-        "qs:pop" : {
-          "type" : "string"
-        },
-        "qs:source" : {
-          "type" : "string"
-        },
-        "qs:type" : {
-          "type" : "string"
-        },
-        "src:geom" : {
-          "type" : "string"
-        },
-        "src:lbl:centroid" : {
-          "type" : "string"
-        },
-        "wof:belongsto" : {
-          "type" : "long"
-        },
-        "wof:breaches" : {
-          "type" : "long"
-        },
-        "wof:concordances" : {
-          "properties" : {
-            "dbp:id" : {
-              "type" : "string"
-            },
-            "fb:id" : {
-              "type" : "string"
-            },
-            "fct:id" : {
-              "type" : "string"
-            },
-            "gn:id" : {
-              "type" : "long"
-            },
-            "gp:id" : {
-              "type" : "long"
-            },
-            "loc:id" : {
-              "type" : "string"
-            },
-            "nyt:id" : {
-              "type" : "string"
-            },
-            "qs:id" : {
-              "type" : "string"
-            },
-            "tgn:id" : {
-              "type" : "string"
-            },
-            "wd:id" : {
-              "type" : "string"
-            }
-          }
-        },
-        "wof:concordances_count" : {
-          "type" : "string"
-        },
-        "wof:country" : {
-          "type" : "string"
-        },
-        "wof:geomhash" : {
-          "type" : "string"
-        },
-        "wof:hierarchy" : {
-          "properties" : {
-            "continent_id" : {
-              "type" : "long"
-            },
-            "country_id" : {
-              "type" : "long"
-            },
-            "county_id" : {
-              "type" : "long"
-            },
-            "dependency_id" : {
-              "type" : "string"
-            },
-            "disputed_id" : {
-              "type" : "string"
-            },
-            "localadmin_id" : {
-              "type" : "string"
-            },
-            "locality_id" : {
-              "type" : "long"
-            },
-            "macrocounty_id" : {
-              "type" : "string"
-            },
-            "macroregion_id" : {
-              "type" : "string"
-            },
-            "region_id" : {
-              "type" : "long"
-            }
-          }
-        },
-        "wof:id" : {
-          "type" : "long"
-        },
-        "wof:lang" : {
-          "type" : "string"
-        },
-        "wof:lastmodified" : {
-          "type" : "long"
-        },
-        "wof:megacity" : {
-          "type" : "long"
-        },
-        "wof:name" : {
-          "type" : "string",
-          "index" : "not_analyzed"
-        },
-        "wof:parent_id" : {
-          "type" : "string"
-        },
-        "wof:placetype" : {
-          "type" : "string"
-        },
-        "wof:placetype_id" : {
-          "type" : "long"
-        },
-        "wof:scale" : {
-          "type" : "long"
-        },
-        "wof:supersedes" : {
-          "type" : "long"
-        },
-        "zs:blockids" : {
-          "type" : "string"
-        },
-        "zs:housing10" : {
-          "type" : "string"
-        },
-        "zs:pop10" : {
-          "type" : "long"
-        }
-      }
-    },
     "venue" : {
       "properties" : {
         "edtf:cessation" : {
@@ -6144,8 +6142,7 @@
           "type" : "long"
         },
         "wof:name" : {
-          "type" : "string",
-          "index" : "not_analyzed"
+          "type" : "string"
         },
         "wof:parent_id" : {
           "type" : "string"
@@ -6160,6 +6157,9 @@
     },
     "microhood" : {
       "properties" : {
+        "bbox" : {
+          "type" : "double"
+        },
         "edtf:cessation" : {
           "type" : "string"
         },
@@ -6184,6 +6184,19 @@
         "geom:type" : {
           "type" : "string"
         },
+        "geometry" : {
+          "properties" : {
+            "coordinates" : {
+              "type" : "double"
+            },
+            "type" : {
+              "type" : "string"
+            }
+          }
+        },
+        "id" : {
+          "type" : "long"
+        },
         "iso:country" : {
           "type" : "string"
         },
@@ -6205,10 +6218,102 @@
         "name_preferred" : {
           "type" : "string"
         },
+        "properties" : {
+          "properties" : {
+            "edtf:cessation" : {
+              "type" : "string"
+            },
+            "edtf:inception" : {
+              "type" : "string"
+            },
+            "geom:area" : {
+              "type" : "double"
+            },
+            "geom:bbox" : {
+              "type" : "string"
+            },
+            "geom:latitude" : {
+              "type" : "double"
+            },
+            "geom:longitude" : {
+              "type" : "double"
+            },
+            "iso:country" : {
+              "type" : "string"
+            },
+            "lbl:latitude" : {
+              "type" : "double"
+            },
+            "lbl:longitude" : {
+              "type" : "double"
+            },
+            "name:eng_x_preferred" : {
+              "type" : "string"
+            },
+            "src:geom" : {
+              "type" : "string"
+            },
+            "wof:belongsto" : {
+              "type" : "long"
+            },
+            "wof:concordances" : {
+              "type" : "object"
+            },
+            "wof:country" : {
+              "type" : "string"
+            },
+            "wof:geomhash" : {
+              "type" : "string"
+            },
+            "wof:hierarchy" : {
+              "properties" : {
+                "continent_id" : {
+                  "type" : "long"
+                },
+                "country_id" : {
+                  "type" : "long"
+                },
+                "county_id" : {
+                  "type" : "long"
+                },
+                "locality_id" : {
+                  "type" : "long"
+                },
+                "microhood_id" : {
+                  "type" : "long"
+                },
+                "neighbourhood_id" : {
+                  "type" : "long"
+                },
+                "region_id" : {
+                  "type" : "long"
+                }
+              }
+            },
+            "wof:id" : {
+              "type" : "long"
+            },
+            "wof:lastmodified" : {
+              "type" : "long"
+            },
+            "wof:name" : {
+              "type" : "string"
+            },
+            "wof:parent_id" : {
+              "type" : "long"
+            },
+            "wof:placetype" : {
+              "type" : "string"
+            }
+          }
+        },
         "src:geom" : {
           "type" : "string"
         },
         "src:lbl:centroid" : {
+          "type" : "string"
+        },
+        "type" : {
           "type" : "string"
         },
         "wof:belongsto" : {
@@ -6261,8 +6366,7 @@
           "type" : "long"
         },
         "wof:name" : {
-          "type" : "string",
-          "index" : "not_analyzed"
+          "type" : "string"
         },
         "wof:parent_id" : {
           "type" : "string"
