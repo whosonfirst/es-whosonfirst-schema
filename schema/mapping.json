@@ -9,8 +9,7 @@
           "type" : "string"
         },
         "edtf:deprecated" : {
-          "type" : "date",
-          "format" : "dateOptionalTime"
+          "type" : "string"
         },
         "geom:area" : {
           "type" : "double"
