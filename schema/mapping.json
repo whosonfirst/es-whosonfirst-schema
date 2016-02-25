@@ -5,6 +5,9 @@
         "edtf:cessation" : {
           "type" : "string"
         },
+        "edtf:inception" : {
+          "type" : "string"
+        },
         "edtf:deprecated" : {
           "type" : "date",
           "format" : "dateOptionalTime"
@@ -5647,6 +5650,9 @@
         "edtf:cessation" : {
           "type" : "string"
         },
+        "edtf:inception" : {
+          "type" : "string"
+        },
         "geom:area" : {
           "type" : "double"
         },
@@ -6098,6 +6104,9 @@
         "edtf:cessation" : {
           "type" : "string"
         },
+        "edtf:inception" : {
+          "type" : "string"
+        },
         "geom:bbox" : {
           "type" : "string"
         },
@@ -6153,8 +6162,10 @@
     "microhood" : {
       "properties" : {
         "edtf:cessation" : {
-          "type" : "date",
-          "format" : "dateOptionalTime"
+          "type" : "string"
+        },
+        "edtf:inception" : {
+          "type" : "string"
         },
         "geom:area" : {
           "type" : "double"
