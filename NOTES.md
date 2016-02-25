@@ -32,3 +32,5 @@ cat mapping.json | curl -XPUT 'http://localhost:9200/whosonfirst' -d @-
 ```
 
 Open question: can we add mappings without reindexing the entire datastore?
+
+(20160224/dphiffer)
