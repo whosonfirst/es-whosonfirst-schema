@@ -21,7 +21,7 @@ Edit the (very large!) JSON document, and be sure to remove the first container
         "edtf:cessation" : {
           "type" : "string"
         },
-				...
+        ...
 ```
 
 Then delete the existing index, and create a new one based on your JSON file.
