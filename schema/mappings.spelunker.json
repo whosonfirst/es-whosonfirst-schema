@@ -64,16 +64,16 @@
           "type" : "double"
         },
         "mz:is_funky" : {
-          "type" : "string"
+          "type" : "integer"
         },
         "mz:is_landuse_aoi" : {
-          "type" : "string"
+          "type" : "integer"
         },
         "mz:max_zoom" : {
-          "type" : "string"
+          "type" : "integer"
         },
         "mz:min_zoom" : {
-          "type" : "string"
+          "type" : "integer"
         },
         "name:ara_x_variant" : {
           "type" : "string",
@@ -672,16 +672,16 @@
           "type" : "double"
         },
         "mz:is_funky" : {
-          "type" : "string"
+          "type" : "integer"
         },
         "mz:is_landuse_aoi" : {
-          "type" : "string"
+          "type" : "integer"
         },
         "mz:max_zoom" : {
-          "type" : "string"
+          "type" : "integer"
         },
         "mz:min_zoom" : {
-          "type" : "string"
+          "type" : "integer"
         },
         "name:ara_x_colloquial" : {
           "type" : "string",
@@ -6303,6 +6303,12 @@
         },
         "wof:placetype_id" : {
           "type" : "long"
+        },
+        "mz:is_current": {
+          "type": "integer"
+        },
+        "mz:is_funky": {
+          "type": "integer"
         }
       }
     },
