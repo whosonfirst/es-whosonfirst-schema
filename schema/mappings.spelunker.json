@@ -6254,6 +6254,12 @@
         "edtf:inception" : {
           "type" : "string"
         },
+        "edtf:deprecated" : {
+          "type" : "string"
+        },
+        "edtf:superseded" : {
+          "type" : "string"
+        },
         "geom:bbox" : {
           "type" : "string"
         },
