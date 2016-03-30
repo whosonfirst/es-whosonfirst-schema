@@ -30,7 +30,7 @@ echo "Building index $INDEX"
 cat "${PROJECT}/schema/mappings.$1.json" | curl -s -XPUT "http://localhost:9200/${INDEX}" -d @- | python -mjson.tool
 
 echo "Copying documents to $INDEX"
-${DIR}/stream2es es \
+stream2es es \
 	--source http://localhost:9200/whosonfirst \
 	--target http://localhost:9200/${INDEX}
 
