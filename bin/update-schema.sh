@@ -8,7 +8,7 @@ INDEX_BASE='whosonfirst'
 
 if [ -z "$1" ] ; then
 	echo "Usage: update-schema.sh [spelunker|boundaryissues|offline-tasks]"
-	exit 0
+	exit 1
 fi
 
 if [ "$1" = "spelunker" ] ; then
@@ -20,8 +20,13 @@ elif [ "$1" = "offline-tasks" ] ; then
 	INDEX_BASE="offline-tasks"
 fi
 
-if [ -f "$DIR/../${INDEX_FILE}" ] ; then
-	OLD_VERSION=`cat $DIR/../${INDEX_FILE}`
+if [ ! -f "$PROJECT/schema/mappings.$1.json" ] ; then
+	echo "Not found: schema/mappings.$1.json"
+	exit 1
+fi
+
+if [ -f "$PROJECT/$INDEX_FILE" ] ; then
+	OLD_VERSION=`cat $PROJECT/$INDEX_FILE`
 else
 	OLD_VERSION=0
 fi
@@ -31,12 +36,13 @@ INDEX="${INDEX_BASE}_v$VERSION"
 OLD_INDEX="${INDEX_BASE}_v$OLD_VERSION"
 
 echo "Building index $INDEX"
-cat "${PROJECT}/schema/mappings.$1.json" | curl -s -XPUT "http://localhost:9200/${INDEX}" -d @- | python -mjson.tool
+cat "$PROJECT/schema/mappings.$1.json" | curl -s -XPUT "http://localhost:9200/${INDEX}" -d @- | python -mjson.tool
 
 echo "Copying documents to $INDEX"
 stream2es es \
 	--source http://localhost:9200/${INDEX_BASE} \
-	--target http://localhost:9200/${INDEX}
+	--target http://localhost:9200/${INDEX} \
+	--log debug
 
 echo "Updating aliases"
 if [ "$OLD_VERSION" -eq 0 ] ; then
@@ -77,4 +83,4 @@ else
 	curl -s -XDELETE "http://localhost:9200/${OLD_INDEX}" | python -mjson.tool
 fi
 
-echo $VERSION > $INDEX_FILE
+echo $VERSION > "$PROJECT/$INDEX_FILE"
