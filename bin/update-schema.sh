@@ -44,6 +44,7 @@ if [ "$OLD_VERSION" -eq 0 ] ; then
 	echo "Deleting index $INDEX_BASE"
 	curl -s -XDELETE "http://localhost:9200/${INDEX_BASE}" | python -mjson.tool
 
+	echo "Creating alias $INDEX => $INDEX_BASE"
 	curl -s -XPOST localhost:9200/_aliases -d '
 	{
 		"actions": [
@@ -55,6 +56,8 @@ if [ "$OLD_VERSION" -eq 0 ] ; then
 	}
 	' | python -mjson.tool
 else
+
+	echo "Reassigning alias $INDEX => $INDEX_BASE"
 	curl -s -XPOST localhost:9200/_aliases -d '
 	{
 		"actions": [
