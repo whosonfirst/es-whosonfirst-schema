@@ -10,8 +10,8 @@ if [ -z "$1" ] ; then
 	echo "Usage: reload-schema.sh [spelunker|boundaryissues|offline-tasks]"
 fi
 
-if [ "$1" = 'offline-tasks' ] ; then
-	INDEX='offline-tasks'
+if [ "$1" = 'offline_tasks' ] ; then
+	INDEX='offline_tasks'
 fi
 
 echo "Deleting index '$INDEX'"
