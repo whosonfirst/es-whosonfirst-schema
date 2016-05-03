@@ -4,16 +4,20 @@ WHOAMI=`python -c 'import os, sys; print os.path.realpath(sys.argv[1])' $0`
 
 DIR=`dirname $WHOAMI`
 PROJECT=`dirname $DIR`
+INDEX_BASE='whosonfirst'
 
 if [ -z "$1" ] ; then
-	echo "Usage: update-schema.sh [spelunker|boundaryissues]"
+	echo "Usage: update-schema.sh [spelunker|boundaryissues|offline-tasks]"
 	exit 0
 fi
 
-if [ $1 == "spelunker" ] ; then
+if [ "$1" = "spelunker" ] ; then
 	INDEX_FILE="SPELUNKER_INDEX_VERSION"
-else
+elif [ "$1" = "boundaryissues" ] ; then
 	INDEX_FILE="BOUNDARYISSUES_INDEX_VERSION"
+elif [ "$1" = "offline-tasks" ] ; then
+	INDEX_FILE="OFFLINE_TASKS_INDEX_VERSION"
+	INDEX_BASE="offline-tasks"
 fi
 
 if [ -f "$DIR/../${INDEX_FILE}" ] ; then
@@ -23,24 +27,28 @@ else
 fi
 
 VERSION=$(($OLD_VERSION + 1))
-INDEX="whosonfirst_v$VERSION"
-OLD_INDEX="whosonfirst_v$OLD_VERSION"
+INDEX="${INDEX_BASE}_v$VERSION"
+OLD_INDEX="${INDEX_BASE}_v$OLD_VERSION"
 
 echo "Building index $INDEX"
 cat "${PROJECT}/schema/mappings.$1.json" | curl -s -XPUT "http://localhost:9200/${INDEX}" -d @- | python -mjson.tool
 
 echo "Copying documents to $INDEX"
 stream2es es \
-	--source http://localhost:9200/whosonfirst \
+	--source http://localhost:9200/${INDEX_BASE} \
 	--target http://localhost:9200/${INDEX}
 
 echo "Updating aliases"
 if [ "$OLD_VERSION" -eq 0 ] ; then
+
+	echo "Deleting index $INDEX_BASE"
+	curl -s -XDELETE "http://localhost:9200/${INDEX_BASE}" | python -mjson.tool
+
 	curl -s -XPOST localhost:9200/_aliases -d '
 	{
 		"actions": [
 			{ "add": {
-				"alias": "whosonfirst",
+				"alias": "'${INDEX_BASE}'",
 				"index": "'${INDEX}'"
 			}}
 		]
@@ -51,11 +59,11 @@ else
 	{
 		"actions": [
 			{ "remove": {
-				"alias": "whosonfirst",
+				"alias": "'${INDEX_BASE}'",
 				"index": "'${OLD_INDEX}'"
 			}},
 			{ "add": {
-				"alias": "whosonfirst",
+				"alias": "'${INDEX_BASE}'",
 				"index": "'${INDEX}'"
 			}}
 		]
