@@ -460,22 +460,22 @@
               "type" : "long"
             },
             "dependency_id" : {
-              "type" : "string"
+              "type" : "long"
             },
             "disputed_id" : {
-              "type" : "string"
+              "type" : "long"
             },
             "localadmin_id" : {
-              "type" : "string"
+              "type" : "long"
             },
             "locality_id" : {
               "type" : "long"
             },
             "macrocounty_id" : {
-              "type" : "string"
+              "type" : "long"
             },
             "macroregion_id" : {
-              "type" : "string"
+              "type" : "long"
             },
             "region_id" : {
               "type" : "long"
@@ -1015,25 +1015,25 @@
               "type" : "long"
             },
             "dependency_id" : {
-              "type" : "string"
+              "type" : "long"
             },
             "disputed_id" : {
-              "type" : "string"
+              "type" : "long"
             },
             "localadmin_id" : {
-              "type" : "string"
+              "type" : "long"
             },
             "locality_id" : {
               "type" : "long"
             },
             "macrocounty_id" : {
-              "type" : "string"
+              "type" : "long"
             },
             "macrohood_id" : {
-              "type" : "string"
+              "type" : "long"
             },
             "macroregion_id" : {
-              "type" : "string"
+              "type" : "long"
             },
             "neighbourhood_id" : {
               "type" : "long"
@@ -6526,7 +6526,7 @@
               "type" : "long"
             },
             "microhood_id" : {
-              "type" : "string"
+              "type" : "long"
             },
             "neighbourhood_id" : {
               "type" : "long"
