@@ -12,8 +12,14 @@ DIR=`dirname $WHOAMI`
 PROJECT=`dirname $DIR`
 
 if [ -z "$1" ] ; then
-	echo "Usage: update-schema.sh [spelunker|boundaryissues|offline_tasks]"
+	echo "Usage: update-schema.sh [spelunker|boundaryissues|offline_tasks] [host:port]"
 	exit 1
+fi
+
+if [ "$2" != "" ] ; then
+	HOST_PORT="$2"
+else
+	HOST_PORT="localhost:9200"
 fi
 
 # The one argument controls two different settings:
@@ -22,7 +28,7 @@ fi
 #           index: whosonfirst
 #           schema: mappings.spelunker.json
 #       boundaryissues
-#           index: whosonfirst
+#           index: boundaryissues
 #           schema: mappings.boundaryissues.json
 #       offline_tasks
 #           index: offline_tasks
@@ -39,7 +45,7 @@ if [ "$1" = "spelunker" ] ; then
 	INDEX_BASE='whosonfirst'
 elif [ "$1" = "boundaryissues" ] ; then
 	INDEX_FILE="BOUNDARYISSUES_INDEX_VERSION"
-	INDEX_BASE='whosonfirst'
+	INDEX_BASE='boundaryissues'
 elif [ "$1" = "offline_tasks" ] ; then
 	INDEX_FILE="OFFLINE_TASKS_INDEX_VERSION"
 	INDEX_BASE="offline_tasks"
@@ -57,20 +63,20 @@ else
 fi
 
 echo "Building index $INDEX"
-cat $MAPPINGS_SCHEMA | curl -s -XPUT "http://localhost:9200/${INDEX}" -d @- | python -mjson.tool
+cat $MAPPINGS_SCHEMA | curl -s -XPUT "http://${HOST_PORT}/${INDEX}" -d @- | python -mjson.tool
 
 if [ "$OLD_VERSION" -gt 0 ] ; then
 	echo "Copying documents to $INDEX"
 	stream2es es \
-		--source http://localhost:9200/${INDEX_BASE} \
-		--target http://localhost:9200/${INDEX} \
+		--source http://${HOST_PORT}/${INDEX_BASE} \
+		--target http://${HOST_PORT}/${INDEX} \
 		--log debug
 fi
 
 if [ "$OLD_VERSION" -eq 0 ] ; then
 
 	echo "Creating alias $INDEX_BASE => $INDEX"
-	curl -s -XPOST localhost:9200/_aliases -d '
+	curl -s -XPOST ${HOST_PORT}/_aliases -d '
 	{
 		"actions": [
 			{ "add": {
@@ -83,7 +89,7 @@ if [ "$OLD_VERSION" -eq 0 ] ; then
 else
 
 	echo "Reassigning alias $INDEX_BASE => $INDEX"
-	curl -s -XPOST localhost:9200/_aliases -d '
+	curl -s -XPOST ${HOST_PORT}/_aliases -d '
 	{
 		"actions": [
 			{ "remove": {
@@ -99,7 +105,7 @@ else
 	' | python -mjson.tool
 
 	echo "Deleting index $OLD_INDEX"
-	curl -s -XDELETE "http://localhost:9200/${OLD_INDEX}" | python -mjson.tool
+	curl -s -XDELETE "http://${HOST_PORT}/${OLD_INDEX}" | python -mjson.tool
 fi
 
 echo $VERSION > "$PROJECT/$INDEX_FILE"
