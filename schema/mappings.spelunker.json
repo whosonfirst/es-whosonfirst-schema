@@ -1,5 +1,38 @@
 {
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "path-analyzer": {
+          "type": "custom",
+          "tokenizer": "path-tokenizer"
+        }
+      },
+      "tokenizer": {
+        "path-tokenizer": {
+          "type": "path_hierarchy",
+          "delimiter": "/"
+        }
+      }
+    }
+  },
   "mappings" : {
+    "_default_": {
+	"properties" : {
+            "wof:tags" : {
+		"type" : "string",
+		"index" : "not_analyzed"
+            },
+	    "xx:categories": {
+		"type" : "string",
+		"index_analyzer": "path-analyzer",
+		"search_analyzer": "keyword"
+	    },
+	    "xy:categories": {
+		"type" : "string",
+		"index" : "not_analyzed"
+	    }
+	}
+    },
     "locality" : {
       "properties" : {
         "names_all" : {
@@ -6557,9 +6590,6 @@
         },
         "wof:placetype_id" : {
           "type" : "long"
-        },
-        "wof:tags" : {
-          "type" : "string"
         }
       }
     }
