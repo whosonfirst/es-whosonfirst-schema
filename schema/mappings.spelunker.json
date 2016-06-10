@@ -10,7 +10,7 @@
       "tokenizer": {
         "path-tokenizer": {
           "type": "path_hierarchy",
-          "delimiter": "/"
+          "delimiter": "."
         }
       }
     }
