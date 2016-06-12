@@ -2,15 +2,15 @@
   "settings": {
     "analysis": {
       "analyzer": {
-        "path-analyzer": {
+        "machinetag-path-analyzer": {
           "type": "custom",
-          "tokenizer": "path-tokenizer"
+          "tokenizer": "machinetag-path-tokenizer"
         }
       },
       "tokenizer": {
-        "path-tokenizer": {
+        "machinetag-path-tokenizer": {
           "type": "path_hierarchy",
-          "delimiter": "."
+          "delimiter": "/"
         }
       }
     }
@@ -18,19 +18,34 @@
   "mappings" : {
     "_default_": {
 	"properties" : {
+	    "categories_all": {
+		"type" : "string",
+		"index_analyzer": "machinetag-path-analyzer",
+		"search_analyzer": "keyword"
+	    },
+	    "machinetags_all": {
+		"type" : "string",
+		"index_analyzer": "machinetag-path-analyzer",
+		"search_analyzer": "keyword"
+	    },
+	    "sg:categories": {
+		"type" : "string",
+		"index_analyzer": "machinetag-path-analyzer",
+		"search_analyzer": "keyword",
+		"copy_to": "categories_all",
+		"copy_to": "machinetags_all"
+	    },
+	    "wof:categories": {
+		"type" : "string",
+		"index_analyzer": "machinetag-path-analyzer",
+		"search_analyzer": "keyword",
+		"copy_to": "categories_all",
+		"copy_to": "machinetags_all"
+	    },
             "wof:tags" : {
 		"type" : "string",
 		"index" : "not_analyzed"
-            },
-	    "xx:categories": {
-		"type" : "string",
-		"index_analyzer": "path-analyzer",
-		"search_analyzer": "keyword"
-	    },
-	    "xy:categories": {
-		"type" : "string",
-		"index" : "not_analyzed"
-	    }
+            }
 	}
     },
     "locality" : {
