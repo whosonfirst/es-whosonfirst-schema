@@ -28,12 +28,33 @@
 		"index_analyzer": "machinetag-path-analyzer",
 		"search_analyzer": "keyword"
 	    },
+	    "tags_all": {
+		"type" : "string",
+		"index" : "not_analyzed"
+	    },
 	    "sg:categories": {
 		"type" : "string",
 		"index_analyzer": "machinetag-path-analyzer",
 		"search_analyzer": "keyword",
 		"copy_to": "categories_all",
 		"copy_to": "machinetags_all"
+	    },
+	    "sg:classifiers.category": {
+		"type" : "string",
+		"index" : "not_analyzed"
+	    },
+	    "sg:classifiers.subcategory": {
+		"type" : "string",
+		"index" : "not_analyzed"
+	    },
+	    "sg:classifiers.type": {
+		"type" : "string",
+		"index" : "not_analyzed"
+	    },
+	    "sg:tags.type": {
+		"type" : "string",
+		"index" : "not_analyzed",
+		"copy_to": "tags_all"
 	    },
 	    "wof:categories": {
 		"type" : "string",
@@ -44,7 +65,8 @@
 	    },
             "wof:tags" : {
 		"type" : "string",
-		"index" : "not_analyzed"
+		"index" : "not_analyzed",
+		"copy_to": "tags_all"
             }
 	}
     },
