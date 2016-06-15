@@ -32,6 +32,18 @@
 		"type" : "string",
 		"index" : "not_analyzed"
 	    },
+            "edtf:cessation" : {
+		"type" : "string"
+            },
+            "edtf:deprecated" : {
+		"type" : "string"
+            },
+            "edtf:inception" : {
+		"type" : "string"
+            },
+            "edtf:superseded" : {
+		"type" : "string"
+            },
 	    "sg:categories": {
 		"type" : "string",
 		"index_analyzer": "machinetag-path-analyzer",
@@ -78,12 +90,6 @@
         "name_not_analyzed" : {
           "type" : "string",
           "index" : "not_analyzed"
-        },
-        "edtf:cessation" : {
-          "type" : "string"
-        },
-        "edtf:inception" : {
-          "type" : "string"
         },
         "geom:area" : {
           "type" : "double"
@@ -602,15 +608,6 @@
         "name_not_analyzed" : {
           "type" : "string",
           "index" : "not_analyzed"
-        },
-        "edtf:cessation" : {
-          "type" : "string"
-        },
-        "edtf:deprecated" : {
-          "type" : "string"
-        },
-        "edtf:inception" : {
-          "type" : "string"
         },
         "geom:area" : {
           "type" : "double"
@@ -6318,18 +6315,6 @@
           "type" : "string",
           "index" : "not_analyzed"
         },
-        "edtf:cessation" : {
-          "type" : "string"
-        },
-        "edtf:inception" : {
-          "type" : "string"
-        },
-        "edtf:deprecated" : {
-          "type" : "string"
-        },
-        "edtf:superseded" : {
-          "type" : "string"
-        },
         "geom:bbox" : {
           "type" : "string"
         },
@@ -6406,12 +6391,6 @@
         "bbox" : {
           "type" : "double"
         },
-        "edtf:cessation" : {
-          "type" : "string"
-        },
-        "edtf:inception" : {
-          "type" : "string"
-        },
         "geom:area" : {
           "type" : "double"
         },
@@ -6468,12 +6447,6 @@
         },
         "properties" : {
           "properties" : {
-            "edtf:cessation" : {
-              "type" : "string"
-            },
-            "edtf:inception" : {
-              "type" : "string"
-            },
             "geom:area" : {
               "type" : "double"
             },
