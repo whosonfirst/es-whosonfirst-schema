@@ -15,6 +15,14 @@ There is nothing to see yet.
 
 ### Cloning indices with stream2es
 
+The following examples are to show you what's happening / how to re-index _in principle_ but you will need to adjust them to taste and circumstance:
+
+```
+$> ./stream2es es --source http://HOST:9200/whosonfirst --target http://HOST:9200/whosonfirst_20160615
+$> curl -XDELETE http://HOST:9200/whosonfirst
+$> curl -XPOST http://HOST:9200/_aliases -d '{ "actions": [ { "add": { "alias": "whosonfirst", "index": "whosonfirst_20160615" }} ] }'
+```
+
 There isn't a whole of feedback during the cloning process so the easiest thing to do is ask the new index how big it is, like this:
 
 ```
