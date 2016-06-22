@@ -1,5 +1,87 @@
 {
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "machinetag-path-analyzer": {
+          "type": "custom",
+          "tokenizer": "machinetag-path-tokenizer"
+        }
+      },
+      "tokenizer": {
+        "machinetag-path-tokenizer": {
+          "type": "path_hierarchy",
+          "delimiter": "/"
+        }
+      }
+    }
+  },
   "mappings" : {
+    "_default_": {
+	"properties" : {
+	    "categories_all": {
+		"type" : "string",
+		"index_analyzer": "machinetag-path-analyzer",
+		"search_analyzer": "keyword"
+	    },
+	    "machinetags_all": {
+		"type" : "string",
+		"index_analyzer": "machinetag-path-analyzer",
+		"search_analyzer": "keyword"
+	    },
+	    "tags_all": {
+		"type" : "string",
+		"index" : "not_analyzed"
+	    },
+            "edtf:cessation" : {
+		"type" : "string"
+            },
+            "edtf:deprecated" : {
+		"type" : "string"
+            },
+            "edtf:inception" : {
+		"type" : "string"
+            },
+            "edtf:superseded" : {
+		"type" : "string"
+            },
+	    "sg:categories": {
+		"type" : "string",
+		"index_analyzer": "machinetag-path-analyzer",
+		"search_analyzer": "keyword",
+		"copy_to": "categories_all",
+		"copy_to": "machinetags_all"
+	    },
+	    "sg:classifiers.category": {
+		"type" : "string",
+		"index" : "not_analyzed"
+	    },
+	    "sg:classifiers.subcategory": {
+		"type" : "string",
+		"index" : "not_analyzed"
+	    },
+	    "sg:classifiers.type": {
+		"type" : "string",
+		"index" : "not_analyzed"
+	    },
+	    "sg:tags.type": {
+		"type" : "string",
+		"index" : "not_analyzed",
+		"copy_to": "tags_all"
+	    },
+	    "wof:categories": {
+		"type" : "string",
+		"index_analyzer": "machinetag-path-analyzer",
+		"search_analyzer": "keyword",
+		"copy_to": "categories_all",
+		"copy_to": "machinetags_all"
+	    },
+            "wof:tags" : {
+		"type" : "string",
+		"index" : "not_analyzed",
+		"copy_to": "tags_all"
+            }
+	}
+    },
     "locality" : {
       "properties" : {
         "names_all" : {
@@ -8,12 +90,6 @@
         "name_not_analyzed" : {
           "type" : "string",
           "index" : "not_analyzed"
-        },
-        "edtf:cessation" : {
-          "type" : "string"
-        },
-        "edtf:inception" : {
-          "type" : "string"
         },
         "geom:area" : {
           "type" : "double"
@@ -532,15 +608,6 @@
         "name_not_analyzed" : {
           "type" : "string",
           "index" : "not_analyzed"
-        },
-        "edtf:cessation" : {
-          "type" : "string"
-        },
-        "edtf:deprecated" : {
-          "type" : "string"
-        },
-        "edtf:inception" : {
-          "type" : "string"
         },
         "geom:area" : {
           "type" : "double"
@@ -6248,18 +6315,6 @@
           "type" : "string",
           "index" : "not_analyzed"
         },
-        "edtf:cessation" : {
-          "type" : "string"
-        },
-        "edtf:inception" : {
-          "type" : "string"
-        },
-        "edtf:deprecated" : {
-          "type" : "string"
-        },
-        "edtf:superseded" : {
-          "type" : "string"
-        },
         "geom:bbox" : {
           "type" : "string"
         },
@@ -6336,12 +6391,6 @@
         "bbox" : {
           "type" : "double"
         },
-        "edtf:cessation" : {
-          "type" : "string"
-        },
-        "edtf:inception" : {
-          "type" : "string"
-        },
         "geom:area" : {
           "type" : "double"
         },
@@ -6398,12 +6447,6 @@
         },
         "properties" : {
           "properties" : {
-            "edtf:cessation" : {
-              "type" : "string"
-            },
-            "edtf:inception" : {
-              "type" : "string"
-            },
             "geom:area" : {
               "type" : "double"
             },
@@ -6557,9 +6600,6 @@
         },
         "wof:placetype_id" : {
           "type" : "long"
-        },
-        "wof:tags" : {
-          "type" : "string"
         }
       }
     }
