@@ -88,6 +88,15 @@
             "names_all" : {
 		"type" : "string"
             },
+            "names_colloquial" : {
+		"type" : "string"
+            },
+            "names_preferred" : {
+		"type" : "string"
+            },
+            "names_variant" : {
+		"type" : "string"
+            },
             "name_not_analyzed" : {
 		"type" : "string",
 		"index" : "not_analyzed"
