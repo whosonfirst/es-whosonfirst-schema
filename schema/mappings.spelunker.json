@@ -56,6 +56,14 @@
                     "copy_to":       [ "names_alt", "names_colloquial" ]
                 }
             }},
+	    { "names_x_unknown": {
+                "match":              "name:*_x_unknown", 
+                "match_mapping_type": "string",
+                "mapping": {
+                    "type":           "string",
+                    "copy_to":       "names_alt"
+                }
+            }},
 	    { "names_x_all": {
                 "match":              "name:*_x_*", 
                 "match_mapping_type": "string",
