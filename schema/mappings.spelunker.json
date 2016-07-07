@@ -18,15 +18,21 @@
   "mappings" : {
     "_default_": {
 	"dynamic_templates": [
-	    { "names_x": {
-                "match":              "name:*_x_*", 
-                "match_mapping_type": "string",
+	    { "counts": {
+                "match":              "count*", 
+                "match_mapping_type": "long",
                 "mapping": {
-                    "type":           "string",
-                    "copy_to":       "names_all"
+                    "type":           "long"
                 }
             }},
-	    { "names_preferred": {
+	    { "edtf": {
+                "match":              "edtf:*", 
+                "match_mapping_type": "string",
+                "mapping": {
+                    "type":           "string"
+                }
+            }},
+	    { "names_x_preferred": {
                 "match":              "name:*_x_preferred", 
                 "match_mapping_type": "string",
                 "mapping": {
@@ -34,20 +40,28 @@
                     "copy_to":       "names_preferred"
                 }
             }},
-	    { "names_variant": {
+	    { "names_x_variant": {
                 "match":              "name:*_x_variant", 
                 "match_mapping_type": "string",
                 "mapping": {
                     "type":           "string",
-                    "copy_to":       "names_variant"
+                    "copy_to":       [ "names_alt", "names_variant" ]
                 }
             }},
-	    { "names_colloquial": {
+	    { "names_x_colloquial": {
                 "match":              "name:*_x_colloquial", 
                 "match_mapping_type": "string",
                 "mapping": {
                     "type":           "string",
-                    "copy_to":       "names_colloquial"
+                    "copy_to":       [ "names_alt", "names_colloquial" ]
+                }
+            }},
+	    { "names_x_all": {
+                "match":              "name:*_x_*", 
+                "match_mapping_type": "string",
+                "mapping": {
+                    "type":           "string",
+                    "copy_to":       "names_all"
                 }
             }},
 	    { "latitude": {
@@ -71,6 +85,13 @@
                     "type":           "string"
                 }
             }},
+	    { "quattroshapes": {
+                "match":              "qs:*", 
+                "match_mapping_type": "string",
+                "mapping": {
+                    "type":           "string"
+                }
+            }},
 	    { "zetashapes": {
                 "match":              "zs:*", 
                 "match_mapping_type": "string",
@@ -86,6 +107,9 @@
 		"search_analyzer": "keyword"
 	    },
             "names_all" : {
+		"type" : "string"
+            },
+            "names_alt" : {
 		"type" : "string"
             },
             "names_colloquial" : {
@@ -110,18 +134,6 @@
 		"type" : "string",
 		"index" : "not_analyzed"
 	    },
-            "edtf:cessation" : {
-		"type" : "string"
-            },
-            "edtf:deprecated" : {
-		"type" : "string"
-            },
-            "edtf:inception" : {
-		"type" : "string"
-            },
-            "edtf:superseded" : {
-		"type" : "string"
-            },
             "geom:area" : {
 		"type" : "double"
             },
@@ -182,72 +194,6 @@
 		"index" : "not_analyzed",
 		"copy_to": "tags_all"
 	    },
-            "qs:a0" : {
-		"type" : "string"
-            },
-            "qs:a0_lc" : {
-		"type" : "string"
-            },
-            "qs:a1" : {
-		"type" : "string"
-            },
-            "qs:a1_alt" : {
-		"type" : "string"
-            },
-            "qs:a1_lc" : {
-		"type" : "string"
-            },
-            "qs:a1r" : {
-		"type" : "string"
-            },
-            "qs:a1r_lc" : {
-		"type" : "string"
-            },
-            "qs:a2" : {
-		"type" : "string"
-            },
-            "qs:a2_alt" : {
-		"type" : "string"
-            },
-            "qs:a2_lc" : {
-		"type" : "string"
-            },
-            "qs:a2r" : {
-		"type" : "string"
-            },
-            "qs:adm0" : {
-		"type" : "string"
-            },
-            "qs:id" : {
-		"type" : "string"
-            },
-            "qs:la" : {
-		"type" : "string"
-            },
-            "qs:la_lc" : {
-		"type" : "string"
-            },
-            "qs:level" : {
-		"type" : "string"
-            },
-            "qs:loc" : {
-		"type" : "string"
-            },
-            "qs:loc_alt" : {
-		"type" : "string"
-            },
-            "qs:loc_lc" : {
-		"type" : "string"
-            },
-            "qs:pop" : {
-		"type" : "string"
-            },
-            "qs:source" : {
-		"type" : "string"
-            },
-            "qs:type" : {
-		"type" : "string"
-            },
             "src:geom" : {
 		"type" : "string"
             },
