@@ -182,8 +182,7 @@
 		"type" : "string",
 		"index_analyzer": "machinetag-path-analyzer",
 		"search_analyzer": "keyword",
-		"copy_to": "categories_all",
-		"copy_to": "machinetags_all"
+		"copy_to": [ "categories_all", "machinetags_all" ]
 	    },
 	    "sg:classifiers.category": {
 		"type" : "string",
@@ -218,8 +217,7 @@
 		"type" : "string",
 		"index_analyzer": "machinetag-path-analyzer",
 		"search_analyzer": "keyword",
-		"copy_to": "categories_all",
-		"copy_to": "machinetags_all"
+		"copy_to": [ "categories_all", "machinetags_all" ]
 	    },
             "wof:concordances" : {
 		"properties" : {
