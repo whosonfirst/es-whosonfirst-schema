@@ -12,7 +12,7 @@ DIR=`dirname $WHOAMI`
 PROJECT=`dirname $DIR`
 
 if [ -z "$1" ] ; then
-	echo "Usage: update-schema.sh [spelunker|boundaryissues|offline_tasks] [host:port]"
+	echo "Usage: update-schema.sh [spelunker|boundaryissues|offline_tasks|audit_trail] [host:port]"
 	exit 1
 fi
 
@@ -49,6 +49,9 @@ elif [ "$1" = "boundaryissues" ] ; then
 elif [ "$1" = "offline_tasks" ] ; then
 	INDEX_FILE="OFFLINE_TASKS_INDEX_VERSION"
 	INDEX_BASE="offline_tasks"
+elif [ "$1" = "audit_trail" ] ; then
+	INDEX_FILE="AUDIT_TRAIL_INDEX_VERSION"
+	INDEX_BASE="audit_trail"
 fi
 
 if [ ! -f "$PROJECT/$INDEX_FILE" ] ; then
