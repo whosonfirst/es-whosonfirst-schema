@@ -166,6 +166,12 @@
             "iso:country" : {
 		"type" : "string"
             },
+	    "mz:categories": {
+		"type" : "string",
+		"index_analyzer": "machinetag-path-analyzer",
+		"search_analyzer": "keyword",
+		"copy_to": [ "categories_all", "machinetags_all" ]
+	    },
             "mz:is_funky" : {
 		"type" : "integer"
             },
