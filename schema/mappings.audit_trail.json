@@ -20,6 +20,15 @@
                 },
                 "task": {
                     "type": "string"
+                },
+                "data": {
+                    "type": "string"
+                },
+                "microtime" : {
+                    "type" : "double"
+                },
+                "pid" : {
+                    "type" : "long"
                 }
             }
         }

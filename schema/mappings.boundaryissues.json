@@ -15,6 +15,12 @@
         "edtf:inception" : {
           "type" : "string"
         },
+        "edtf:deprecated" : {
+          "type" : "string"
+        },
+        "edtf:superseded" : {
+          "type" : "string"
+        },
         "geom:area" : {
           "type" : "double"
         },
@@ -540,6 +546,9 @@
           "type" : "string"
         },
         "edtf:inception" : {
+          "type" : "string"
+        },
+        "edtf:superseded" : {
           "type" : "string"
         },
         "geom:area" : {
@@ -6342,6 +6351,12 @@
         "edtf:inception" : {
           "type" : "string"
         },
+        "edtf:deprecated" : {
+          "type" : "string"
+        },
+        "edtf:superseded" : {
+          "type" : "string"
+        },
         "geom:area" : {
           "type" : "double"
         },
@@ -6402,6 +6417,12 @@
               "type" : "string"
             },
             "edtf:inception" : {
+              "type" : "string"
+            },
+            "edtf:deprecated" : {
+              "type" : "string"
+            },
+            "edtf:superseded" : {
               "type" : "string"
             },
             "geom:area" : {
