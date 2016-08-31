@@ -70,7 +70,7 @@ cat $MAPPINGS_SCHEMA | curl -s -XPUT "http://${HOST_PORT}/${INDEX}" -d @- | pyth
 
 if [ "$OLD_VERSION" -gt 0 ] ; then
 	echo "Copying documents to $INDEX"
-	stream2es es \
+	${DIR}/stream2es es \
 		--source http://${HOST_PORT}/${INDEX_BASE} \
 		--target http://${HOST_PORT}/${INDEX} \
 		--log debug
