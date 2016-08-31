@@ -72,8 +72,7 @@ if [ "$OLD_VERSION" -gt 0 ] ; then
 	echo "Copying documents to $INDEX"
 	${DIR}/stream2es es \
 		--source http://${HOST_PORT}/${INDEX_BASE} \
-		--target http://${HOST_PORT}/${INDEX} \
-		--log debug
+		--target http://${HOST_PORT}/${INDEX}
 fi
 
 if [ "$OLD_VERSION" -eq 0 ] ; then
