@@ -36,6 +36,11 @@ Which you can then pipe in to the `watch` command for live updates, like this:
 $> watch -n 10 "curl -s 'http://HOST:9200/INDEX/_search?q=*:*&rows=1' | python -mjson.tool | jq '.hits.total'"
 ```
 
+## Emoji
+
+* https://jolicode.com/blog/search-for-emoji-with-elasticsearch
+* https://github.com/jolicode/emoji-search
+
 ## See also
 
 * The `prepare_geojson` method in [py-mapzen-whosonfirst-search](https://github.com/whosonfirst/py-mapzen-whosonfirst-search/blob/master/mapzen/whosonfirst/search/__init__.py)
