@@ -27,12 +27,9 @@
 		"filter": [
 		    "lowercase",
 		    "punctuation_filter",
-		    "remove_empty_filter",
-		    "english_emoji"
+		    "remove_empty_filter"
 		]
-            }
-	},
-	"analyzer": {
+            },
             "machinetag-path-analyzer": {
 		"type": "custom",
 		"tokenizer": "machinetag-path-tokenizer"
