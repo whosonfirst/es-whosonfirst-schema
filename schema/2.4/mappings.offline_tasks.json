@@ -1,0 +1,267 @@
+{
+    "mappings": {
+        "logs": {
+            "properties": {
+                "@event": {
+                    "type": "string"
+                },
+                "@id": {
+                    "type": "string"
+                },
+                "@timestamp": {
+                    "format": "dateOptionalTime",
+                    "type": "date"
+                },
+                "@version": {
+                    "type": "string"
+                },
+                "action": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "string"
+                },
+                "rsp": {
+                    "properties": {
+                        "body": {
+                            "type": "string"
+                        },
+                        "code": {
+                            "type": "long"
+                        },
+                        "error": {
+                            "type": "string"
+                        },
+                        "headers": {
+                            "properties": {
+                                "_status": {
+                                    "type": "string"
+                                },
+                                "access-control-allow-origin": {
+                                    "type": "string"
+                                },
+                                "access-control-expose-headers": {
+                                    "type": "string"
+                                },
+                                "content-length": {
+                                    "type": "string"
+                                },
+                                "content-security-policy": {
+                                    "type": "string"
+                                },
+                                "content-type": {
+                                    "type": "string"
+                                },
+                                "date": {
+                                    "type": "string"
+                                },
+                                "server": {
+                                    "type": "string"
+                                },
+                                "status": {
+                                    "type": "string"
+                                },
+                                "strict-transport-security": {
+                                    "type": "string"
+                                },
+                                "x-accepted-oauth-scopes": {
+                                    "type": "string"
+                                },
+                                "x-content-type-options": {
+                                    "type": "string"
+                                },
+                                "x-frame-options": {
+                                    "type": "string"
+                                },
+                                "x-github-media-type": {
+                                    "type": "string"
+                                },
+                                "x-github-request-id": {
+                                    "type": "string"
+                                },
+                                "x-oauth-client-id": {
+                                    "type": "string"
+                                },
+                                "x-oauth-scopes": {
+                                    "type": "string"
+                                },
+                                "x-ratelimit-limit": {
+                                    "type": "string"
+                                },
+                                "x-ratelimit-remaining": {
+                                    "type": "string"
+                                },
+                                "x-ratelimit-reset": {
+                                    "type": "string"
+                                },
+                                "x-xss-protection": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "info": {
+                            "properties": {
+                                "connect_time": {
+                                    "type": "double"
+                                },
+                                "content_type": {
+                                    "type": "string"
+                                },
+                                "download_content_length": {
+                                    "type": "long"
+                                },
+                                "filetime": {
+                                    "type": "long"
+                                },
+                                "header_size": {
+                                    "type": "long"
+                                },
+                                "http_code": {
+                                    "type": "long"
+                                },
+                                "local_ip": {
+                                    "type": "string"
+                                },
+                                "local_port": {
+                                    "type": "long"
+                                },
+                                "namelookup_time": {
+                                    "type": "double"
+                                },
+                                "pretransfer_time": {
+                                    "type": "double"
+                                },
+                                "primary_ip": {
+                                    "type": "string"
+                                },
+                                "primary_port": {
+                                    "type": "long"
+                                },
+                                "redirect_count": {
+                                    "type": "long"
+                                },
+                                "redirect_time": {
+                                    "type": "long"
+                                },
+                                "redirect_url": {
+                                    "type": "string"
+                                },
+                                "request_size": {
+                                    "type": "long"
+                                },
+                                "size_download": {
+                                    "type": "long"
+                                },
+                                "size_upload": {
+                                    "type": "long"
+                                },
+                                "speed_download": {
+                                    "type": "long"
+                                },
+                                "speed_upload": {
+                                    "type": "long"
+                                },
+                                "ssl_verify_result": {
+                                    "type": "long"
+                                },
+                                "starttransfer_time": {
+                                    "type": "double"
+                                },
+                                "total_time": {
+                                    "type": "double"
+                                },
+                                "upload_content_length": {
+                                    "type": "long"
+                                },
+                                "url": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "method": {
+                            "type": "string"
+                        },
+                        "ok": {
+                            "type": "string"
+                        },
+                        "output": {
+                            "type": "string"
+                        },
+                        "req_headers": {
+                            "properties": {
+                                "_request": {
+                                    "type": "string"
+                                },
+                                "accept": {
+                                    "type": "string"
+                                },
+                                "authorization": {
+                                    "type": "string"
+                                },
+                                "content-length": {
+                                    "type": "string"
+                                },
+                                "content-type": {
+                                    "type": "string"
+                                },
+                                "host": {
+                                    "type": "string"
+                                },
+                                "user-agent": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "saved": {
+                            "type": "string"
+                        },
+                        "url": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "task": {
+                    "type": "string"
+                },
+                "task_id": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "event_id": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                }
+            }
+        },
+        "schedule": {
+            "properties": {
+                "@event": {
+                    "type": "string"
+                },
+                "@timestamp": {
+                    "format": "dateOptionalTime",
+                    "type": "date"
+                },
+                "@version": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "rsp": {
+                    "properties": {
+                        "ok": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "task": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

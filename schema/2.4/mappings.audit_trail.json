@@ -1,0 +1,36 @@
+{
+    "mappings": {
+        "logs": {
+            "properties": {
+                "@event": {
+                    "type": "string"
+                },
+                "@id": {
+                    "type": "string"
+                },
+                "@timestamp": {
+                    "format": "dateOptionalTime",
+                    "type": "date"
+                },
+                "@version": {
+                    "type": "string"
+                },
+                "ok": {
+                    "type": "integer"
+                },
+                "task": {
+                    "type": "string"
+                },
+                "data": {
+                    "type": "string"
+                },
+                "microtime" : {
+                    "type" : "double"
+                },
+                "pid" : {
+                    "type" : "long"
+                }
+            }
+        }
+    }
+}
