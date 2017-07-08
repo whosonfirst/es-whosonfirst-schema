@@ -1,0 +1,84 @@
+{
+  "settings": {
+      "analysis": {
+	  "char_filter": {
+              "zwj_char_filter": {
+		  "type": "mapping",
+		  "mappings": [ 
+		      "\\u200D=>"
+		  ]
+              }
+	  },
+	  "filter": {
+              "english_emoji": {
+		  "type": "synonym",
+		  "synonyms_path": "synonyms/cldr-emoji-annotation-synonyms-en.txt" 
+              },
+              "punctuation_filter": {
+		  "type": "pattern_replace",
+		  "pattern": "\\p{Punct}|\\uFE0E|\\uFE0F|\\uD83C\\uDFFB|\\uD83C\\uDFFC|\\uD83C\\uDFFD|\\uD83C\\uDFFE|\\uD83C\\uDFFF",
+		  "replace": ""
+              },
+              "remove_empty_filter": {
+		  "type": "length",
+		  "min": 1
+              },
+              "snowball_eng" : {
+                  "type" : "snowball",
+                  "language" : "English"
+              },
+	      "ngram":{
+		  "type":"ngram",
+		  "min_gram":2,
+		  "max_gram":15
+	      }
+	  },
+	  "analyzer": {
+              "english_with_emoji": {
+		  "char_filter": "zwj_char_filter",
+		  "tokenizer": "whitespace",
+		  "filter": [
+		      "lowercase",
+		      "punctuation_filter",
+		      "remove_empty_filter",
+		      "snowball_eng",
+		      "english_emoji"
+		  ]
+              }
+	  },
+	  "autocomplete":{
+	      "type":"custom",
+	      "tokenizer":"standard",
+	      "filter":[ "standard", "lowercase", "stop", "kstem", "ngram" ] 
+	  }
+      }
+  },
+    "mappings" : {
+	"_default_": {
+	    "dynamic_templates": [
+	    ],
+	    "properties" : {
+		"wof:brand_id" : {
+		    "type" : "long"
+		},
+		"wof:name" : {
+		    "type" : "string",
+		    "analyzer": "english_with_emoji",
+		    "search_analyzer": "english_with_emoji",
+		    "copy_to" : [ "names_all", "name_not_analyzed" ]
+		}
+	    }
+	},
+	"autocomplete": {
+	    "dynamic_templates": [
+	    ],
+	    "properties": {
+		"wof:name": {
+		    "type": "string",
+		    "analyzer": "autocomplete_analyzer",
+		    "boost": 10
+		}
+	    }
+	}
+    }
+}
