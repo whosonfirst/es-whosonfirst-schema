@@ -178,6 +178,12 @@ $> curl -XPUT 'http://localhost:9200/_snapshot/spelunker/20160304?wait_for_compl
 * https://jolicode.com/blog/search-for-emoji-with-elasticsearch
 * https://github.com/jolicode/emoji-search
 
+## Autocomplete
+
+* https://qbox.io/blog/multi-field-partial-word-autocomplete-in-elasticsearch-using-ngrams
+* https://jontai.me/blog/2013/02/adding-autocomplete-to-an-elasticsearch-search-application/
+* https://gist.github.com/justinvw/5025854
+
 ## See also
 
 * The `prepare_geojson` method in [py-mapzen-spelunker-search](https://github.com/spelunker/py-mapzen-spelunker-search/blob/master/mapzen/spelunker/search/__init__.py)
