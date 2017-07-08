@@ -48,18 +48,18 @@
               "machinetag-path-analyzer": {
 		  "type": "custom",
 		  "tokenizer": "machinetag-path-tokenizer"
-              }
+              },
+	      "autocomplete":{
+		  "type":"custom",
+		  "tokenizer":"standard",
+		  "filter":[ "standard", "lowercase", "stop", "kstem", "ngram" ] 
+	      }
 	  },
 	  "tokenizer": {
               "machinetag-path-tokenizer": {
 		  "type": "path_hierarchy",
 		  "delimiter": "/"
               }
-	  },
-	  "autocomplete":{
-	      "type":"custom",
-	      "tokenizer":"standard",
-	      "filter":[ "standard", "lowercase", "stop", "kstem", "ngram" ] 
 	  }
       }
   },

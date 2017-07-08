@@ -44,12 +44,12 @@
 		      "snowball_eng",
 		      "english_emoji"
 		  ]
-              }
-	  },
-	  "autocomplete":{
-	      "type":"custom",
-	      "tokenizer":"standard",
-	      "filter":[ "standard", "lowercase", "stop", "kstem", "ngram" ] 
+              },
+	      "autocomplete":{
+		  "type":"custom",
+		  "tokenizer":"standard",
+		  "filter":[ "standard", "lowercase", "stop", "kstem", "ngram" ] 
+	      }
 	  }
       }
   },
@@ -60,6 +60,10 @@
 	    "properties" : {
 		"wof:brand_id" : {
 		    "type" : "long"
+		},
+		"wof:brand_size" : {
+		    "type" : "string",
+		    "index" : "not_analyzed"
 		},
 		"wof:name" : {
 		    "type" : "string",
@@ -75,7 +79,7 @@
 	    "properties": {
 		"wof:name": {
 		    "type": "string",
-		    "analyzer": "autocomplete_analyzer",
+		    "analyzer": "autocomplete",
 		    "boost": 10
 		}
 	    }
