@@ -69,15 +69,9 @@
 		    "type" : "string",
 		    "analyzer": "english_with_emoji",
 		    "search_analyzer": "english_with_emoji",
-		    "copy_to" : [ "names_all", "name_not_analyzed" ]
-		}
-	    }
-	},
-	"autocomplete": {
-	    "dynamic_templates": [
-	    ],
-	    "properties": {
-		"wof:name": {
+		    "copy_to" : [ "names_autocomplete" ]
+		},
+		"names_autocomplete": {
 		    "type": "string",
 		    "analyzer": "autocomplete",
 		    "boost": 10

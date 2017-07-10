@@ -124,7 +124,7 @@
                     "match_mapping_type": "string",
                     "mapping": {
 			"type":           "string",
-			"copy_to":       "names_all"
+			"copy_to":       [ "names_all", "names_autocomplete" ]
                     }
 		}},
 		{ "latitude": {
@@ -178,6 +178,11 @@
 		    "type" : "string",
 		    "analyzer": "english_with_emoji",
 		    "search_analyzer": "english_with_emoji"
+		},
+		"names_autocomplete" : {
+		    "type" : "string",
+		    "analyzer": "autocomplete",
+		    "boost": 10
 		},
 		"names_colloquial" : {
 		    "type" : "string",
@@ -420,7 +425,7 @@
 		    "type" : "string",
 		    "analyzer": "english_with_emoji",
 		    "search_analyzer": "english_with_emoji",
-		    "copy_to" : [ "names_all", "name_not_analyzed" ]
+		    "copy_to" : [ "names_all", "name_not_analyzed", "names_autocomplete" ]
 		},
 		"wof:parent_id" : {
 		    "type" : "long"
@@ -441,33 +446,6 @@
 		    "type" : "string",
 		    "index" : "not_analyzed",
 		    "copy_to": "tags_all"
-		}
-	    }
-	},
-	"autocomplete": {
-	    "dynamic_templates": [
-		{ "names_x_all": {
-                    "match":              "name:*_x_*", 
-                    "match_mapping_type": "string",
-                    "mapping": {
-			"type":           "string",
-			"copy_to":       "names_auto"
-                    }
-		}},
-		{ "wof_name": {
-		    "match": "wof:name",
-                    "match_mapping_type": "string",
-                    "mapping": {
-			"type":           "string",
-			"copy_to":       "names_auto"
-                    }
-		}}
-	    ],
-	    "properties": {
-		"names_auto": {
-		    "type": "string",
-		    "analyzer": "autocomplete_analyzer",
-		    "boost": 10
 		}
 	    }
 	}
