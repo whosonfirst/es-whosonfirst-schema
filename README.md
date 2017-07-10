@@ -183,11 +183,20 @@ $> curl -XPUT 'http://localhost:9200/_snapshot/spelunker/20160304?wait_for_compl
 * https://qbox.io/blog/multi-field-partial-word-autocomplete-in-elasticsearch-using-ngrams
 * https://jontai.me/blog/2013/02/adding-autocomplete-to-an-elasticsearch-search-application/
 * https://gist.github.com/justinvw/5025854
+* https://stackoverflow.com/questions/36806081/how-to-query-for-auto-complete-in-elastic-search
 
 ### Example
 
 ```
 curl 'localhost:9200/brands_20170710/_search?pretty=on' -d '{"query": {"match": { "names_autocomplete": "Jack" }}}' | less
+```
+
+## Brands
+
+_Please finish writing me..._
+
+```
+brands-es-index -s /usr/local/data/whosonfirst-brands/data/ -b --index brands_20170710
 ```
 
 ## See also
