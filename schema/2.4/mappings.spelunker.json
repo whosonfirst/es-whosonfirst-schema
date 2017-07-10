@@ -230,17 +230,20 @@
 		    "search_analyzer": "keyword",
 		    "copy_to": [ "categories_all", "machinetags_all" ]
 		},
+		"mz:is_current" : {
+		    "type" : "byte"
+		},
 		"mz:is_funky" : {
-		    "type" : "integer"
+		    "type" : "byte"
 		},
 		"mz:is_landuse_aoi" : {
-		    "type" : "integer"
+		    "type" : "byte"
 		},
 		"mz:max_zoom" : {
-		    "type" : "integer"
+		    "type" : "byte"
 		},
 		"mz:min_zoom" : {
-		    "type" : "integer"
+		    "type" : "byte"
 		},
 		"sg:categories": {
 		    "type" : "string",
