@@ -45,7 +45,7 @@ curl -s http://localhost:9200/_aliases | python -mjson.tool
 ## creating a new index
 
 ```
-cat schema/mappings.spelunker.json | curl -XPUT http://localhost:9200/spelunker_current -d @-
+cat schema/2.4/mappings.spelunker.json | curl -XPUT http://localhost:9200/spelunker_current -d @-
 {"acknowledged":true}
 ```
 
@@ -183,6 +183,12 @@ $> curl -XPUT 'http://localhost:9200/_snapshot/spelunker/20160304?wait_for_compl
 * https://qbox.io/blog/multi-field-partial-word-autocomplete-in-elasticsearch-using-ngrams
 * https://jontai.me/blog/2013/02/adding-autocomplete-to-an-elasticsearch-search-application/
 * https://gist.github.com/justinvw/5025854
+
+### Example
+
+```
+curl 'localhost:9200/brands_20170710/_search?pretty=on' -d '{"query": {"match": { "names_autocomplete": "Jack" }}}' | less
+```
 
 ## See also
 
