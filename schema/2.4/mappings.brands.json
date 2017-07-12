@@ -65,11 +65,14 @@
 		    "type" : "string",
 		    "index" : "not_analyzed"
 		},
-		"wof:name" : {
+		"wof:brand_name" : {
 		    "type" : "string",
 		    "analyzer": "english_with_emoji",
 		    "search_analyzer": "english_with_emoji",
 		    "copy_to" : [ "names_autocomplete" ]
+		},
+		"wof:lastmodified" : {
+		    "type" : "long"
 		},
 		"names_autocomplete": {
 		    "type": "string",
