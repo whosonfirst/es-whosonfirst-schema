@@ -46,7 +46,9 @@ The details of how you update the contents of your new `spelunker_20170711` inde
 
 _Important: Read through the next section in its entirety before you start copy-paste-ing commands all over the place._
 
-What is described below will leave open the very real possibility that for some number of requests (for services using the aliased `spelunker` index) duplicate data will be returned. Read that last sentence again. If you don't understand it, then stop and go find someone to help explain it. If you do understand it then take whatever steps are necessary to proceed. This might include "throwing caution to the wind" or "not caring". That's your business. It might be easier just to disable the services or temporarily have then point to the `spelunker_20170711` index and then back to `spelunker` again. Again, just have a think about what you're doing and the rationale you're going to present someone when it all goes pear-shaped...
+What is described below will leave open the very real possibility that for some number of requests (for services using the aliased `spelunker` index) duplicate data will be returned. Read that last sentence again. If you don't understand it, then stop and go find someone to help explain it.
+
+If you do understand it then take whatever steps are necessary to proceed. This might include "throwing caution to the wind" or "not caring". That's your business. It might be easier just to disable the services or temporarily have then point to the `spelunker_20170711` index and then back to `spelunker` again. Again, just have a think about what you're doing and the rationale you're going to present someone when it all goes pear-shaped...
 
 ```
 curl -X POST http://localhost:9200/_aliases -d '{ "actions": [ { "add": { "alias": "spelunker", "index": "spelunker_20170711" }} ] }'
