@@ -2,10 +2,31 @@
 
 Elasticsearch schemas for Who's On First related indices. Because Elasticsearch is too clever when left to its own devices...
 
-## creating a new index
+## Indexes and aliases
+
+* https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-aliases.html
+
+### listing current indices and their aliases
 
 ```
-cat schema/2.4/mappings.spelunker.json | curl -XPUT http://localhost:9200/spelunker_current -d @-
+curl -s http://localhost:9200/_aliases | python -mjson.tool
+{
+    "spelunker_20160707": {
+        "aliases": {
+            "spelunker": {}
+        }
+    }
+}
+```
+
+See the way there is an alias to an index called `spelunker` ? That's so everyone can just point to a single index and be done with it.
+
+### creating a new index
+
+Let's say you want to create a new index called `spelunker_20170711` that will replace the `spelunker_20160707` index (and its alias). First create your index:
+
+```
+cat schema/2.4/mappings.spelunker.json | curl -XPUT http://localhost:9200/spelunker_20170711 -d @-
 {"acknowledged":true}
 ```
 
@@ -14,22 +35,58 @@ _See the `-d @-` at the end of that command? Yeah, that part is important. Trust
 Test your new index with
 
 ```
-curl 'http://localhost:9200/spelunker_current/_mappings?pretty=on' | less
+curl 'http://localhost:9200/spelunker_20170711/_mappings?pretty=on' | less
 ```
 
-If it comes back with something like `mappings: {}` then something is wrong. Do _not_ proceed.
+_If it comes back with something like `mappings: {}` then something is wrong. Do not proceed._
 
-## rebuilding an index (in a nutshell)
+The details of how you update the contents of your new `spelunker_20170711` index are outside the scope of this document.
+
+### updating aliases (for indices)
+
+Important: Read through the next section in its entirety before you start copy-paste-ing commands all over the place. What is described below will leave open the very real possibility that for some number of requests (for services using the aliased `spelunker` index) duplicate data will be returned. Read that last sentence again. If you don't understand it, then stop and go find someone to help explain it. If you do understand it then take whatever steps are necessary to proceed. This might include "throwing caution to the wind" or "not caring". That's your business. It might be easier just to disable the services or temporarily have then point to the `spelunker_20170711` index and then back to `spelunker` again.
 
 ```
-curl -XDELETE http://localhost:9200/spelunker_current
+curl -X POST http://localhost:9200/_aliases -d '{ "actions": [ { "add": { "alias": "spelunker", "index": "spelunker_20170711" }} ] }'
 
-cat schema/2.4/mappings.spelunker.json | curl -XPUT http://localhost:9200/spelunker_current -d @-
+curl -s http://localhost:9200/_aliases | python -mjson.tool
 
-curl -XPOST http://localhost:9200/_aliases -d '{ "actions": [ { "add": { "alias": "spelunker", "index": "spelunker_current" }} ] }'
+{
+    "spelunker_20160707": {
+        "aliases": {
+            "spelunker": {}
+        }
+    },
+    "spelunker_20170711": {
+        "aliases": {
+            "spelunker": {}
+        }
+    }
+}
 ```
 
-## dumping an index
+At which point your `spelunker` index will return _two of everything_ so you need to make sure to remove the old alias. See notes above.
+
+```
+curl -X POST 'http://localhost:9200/_aliases' -d '{ "actions": [ { "remove": { "alias": "spelunker", "index": "spelunker_20160707" }} ] }'
+
+curl -s http://localhost:9200/_aliases | python -mjson.tool
+{
+    "spelunker_20170711": {
+        "aliases": {
+            "spelunker": {}
+        }
+    }
+}
+```
+
+You can also remove the entire index (and with it the alias) but you might want to wait until you're sure the new index is working properly before you do that.
+
+```
+curl -X DELETE http://localhost:9200/spelunker_20160707
+```
+
+### dumping an index
 
 ```
 curl -s 'http://localhost:9200/spelunker_current/_mappings?pretty=on'
@@ -37,107 +94,29 @@ curl -s 'http://localhost:9200/spelunker_current/_mappings?pretty=on'
 
 __A note of caution:__ the format of the dumped index is structured _slightly_ differently than what you use to build the index mappings. The former has a top-level key `[index name]` that contains that `"mappings"` structure. In the latter case, the `"mappings"` appear at the top-level.
 
-## listing current indices
-
-```
-curl -s http://localhost:9200/_aliases | python -mjson.tool
-{
-    "boundaryissues_dphiffer-museums": {
-        "aliases": {}
-    },
-    "boundaryissues_stepps00-test": {
-        "aliases": {}
-    },
-    "boundaryissues_v1": {
-        "aliases": {
-            "boundaryissues": {}
-        }
-    },
-    "spelunker_20160707": {
-        "aliases": {
-            "spelunker": {}
-        }
-    }
-}
-```
-
-## updating pointers (for indices)
-
-```
-curl -X POST http://localhost:9200/_aliases -d '{ "actions": [ { "add": { "alias": "spelunker", "index": "spelunker_current" }} ] }'
-
-curl -s http://localhost:9200/_aliases | python -mjson.tool
-
-{
-    "boundaryissues_dphiffer-museums": {
-        "aliases": {}
-    },
-    "boundaryissues_stepps00-test": {
-        "aliases": {}
-    },
-    "boundaryissues_v1": {
-        "aliases": {
-            "boundaryissues": {}
-        }
-    },
-    "spelunker_20160707": {
-        "aliases": {
-            "spelunker": {}
-        }
-    },
-    "spelunker_current": {
-        "aliases": {
-            "spelunker": {}
-        }
-    }
-}
-```
-
-At which point your `spelunker` index will return two of everything so you need to make sure to delete the old alias.
-
-```
-curl -X DELETE http://localhost:9200/spelunker_20160707
-curl -s http://localhost:9200/_aliases | python -mjson.tool
-{
-    "boundaryissues_stepps00-test": {
-        "aliases": {}
-    },
-    "boundaryissues_v1": {
-        "aliases": {
-            "boundaryissues": {}
-        }
-    },
-    "spelunker_current": {
-        "aliases": {
-            "spelunker": {}
-        }
-    }
-}
-```
-
 ## Cloning indices with stream2es
 
 The following examples are to show you what's happening / how to re-index _in principle_ but you will need to adjust them to taste and circumstance:
 
 ```
-$> ./stream2es es --source http://HOST:9200/spelunker --target http://HOST:9200/spelunker_20160615
+$> ./stream2es es --source http://localhost:9200/spelunker --target http://localhost:9200/spelunker_20160615
 
-$> curl -X DELETE http://HOST:9200/spelunker
+$> curl -X DELETE http://localhost:9200/spelunker
 
-$> curl -X POST http://HOST:9200/_aliases -d '{ "actions": [ { "add": { "alias": "spelunker", "index": "spelunker_20160615" }} ] }'
+$> curl -X POST http://localhost:9200/_aliases -d '{ "actions": [ { "add": { "alias": "spelunker", "index": "spelunker_20160615" }} ] }'
 ```
 
 There isn't a whole of feedback during the cloning process so the easiest thing to do is ask the new index how big it is, like this:
 
 ```
-$> curl -s 'http://HOST:9200/INDEX/_search?q=*:*&rows=1' | python -mjson.tool | jq '.hits.total'
+$> curl -s 'http://localhost:9200/INDEX/_search?q=*:*&rows=1' | python -mjson.tool | jq '.hits.total'
 9950487
 ```
 
 Which you can then pipe in to the `watch` command for live updates, like this:
 
 ```
-$> watch -n 10 "curl -s 'http://HOST:9200/INDEX/_search?q=*:*&rows=1' | python -mjson.tool | jq '.hits.total'"
+$> watch -n 10 "curl -s 'http://localhost:9200/INDEX/_search?q=*:*&rows=1' | python -mjson.tool | jq '.hits.total'"
 ```
 
 ## Snapshots
