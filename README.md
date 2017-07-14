@@ -2,11 +2,30 @@
 
 Elasticsearch schemas for Who's On First related indices. Because Elasticsearch is too clever when left to its own devices...
 
+## creating a new index
+
+```
+cat schema/2.4/mappings.spelunker.json | curl -XPUT http://localhost:9200/spelunker_current -d @-
+{"acknowledged":true}
+```
+
+_See the `-d @-` at the end of that command? Yeah, that part is important. Trust me..._
+
+Test your new index with
+
+```
+curl 'http://localhost:9200/spelunker_current/_mappings?pretty=on' | less
+```
+
+If it comes back with something like `mappings: {}` then something is wrong. Do _not_ proceed.
+
 ## rebuilding an index (in a nutshell)
 
 ```
 curl -XDELETE http://localhost:9200/spelunker_current
-cat schema/mappings.spelunker.json | curl -XPUT http://localhost:9200/spelunker_current -d @-
+
+cat schema/2.4/mappings.spelunker.json | curl -XPUT http://localhost:9200/spelunker_current -d @-
+
 curl -XPOST http://localhost:9200/_aliases -d '{ "actions": [ { "add": { "alias": "spelunker", "index": "spelunker_current" }} ] }'
 ```
 
@@ -42,34 +61,13 @@ curl -s http://localhost:9200/_aliases | python -mjson.tool
 }
 ```
 
-## creating a new index
-
-```
-cat schema/2.4/mappings.spelunker.json | curl -XPUT http://localhost:9200/spelunker_current -d @-
-{"acknowledged":true}
-```
-
-_See the `-d @-` at the end of that command? Yeah, that part is important. Trust me..._
-
-Test your new index with
-
-```
-curl 'http://localhost:9200/spelunker_current/_mappings?pretty=on' | less
-```
-
-If it comes back with something like `mappings: {}` then something is wrong. Do _not_ proceed.
-
-## clone the current index to the new index
-
-```
-./bin/stream2es es --source http://localhost:9200/spelunker --target http://localhost:9200/spelunker_current
-```
-
 ## updating pointers (for indices)
 
 ```
-curl -XPOST http://localhost:9200/_aliases -d '{ "actions": [ { "add": { "alias": "spelunker", "index": "spelunker_current" }} ] }'
+curl -X POST http://localhost:9200/_aliases -d '{ "actions": [ { "add": { "alias": "spelunker", "index": "spelunker_current" }} ] }'
+
 curl -s http://localhost:9200/_aliases | python -mjson.tool
+
 {
     "boundaryissues_dphiffer-museums": {
         "aliases": {}
@@ -98,7 +96,7 @@ curl -s http://localhost:9200/_aliases | python -mjson.tool
 At which point your `spelunker` index will return two of everything so you need to make sure to delete the old alias.
 
 ```
-curl -XDELETE http://localhost:9200/spelunker_20160707
+curl -X DELETE http://localhost:9200/spelunker_20160707
 curl -s http://localhost:9200/_aliases | python -mjson.tool
 {
     "boundaryissues_stepps00-test": {
@@ -123,8 +121,10 @@ The following examples are to show you what's happening / how to re-index _in pr
 
 ```
 $> ./stream2es es --source http://HOST:9200/spelunker --target http://HOST:9200/spelunker_20160615
-$> curl -XDELETE http://HOST:9200/spelunker
-$> curl -XPOST http://HOST:9200/_aliases -d '{ "actions": [ { "add": { "alias": "spelunker", "index": "spelunker_20160615" }} ] }'
+
+$> curl -X DELETE http://HOST:9200/spelunker
+
+$> curl -X POST http://HOST:9200/_aliases -d '{ "actions": [ { "add": { "alias": "spelunker", "index": "spelunker_20160615" }} ] }'
 ```
 
 There isn't a whole of feedback during the cloning process so the easiest thing to do is ask the new index how big it is, like this:
