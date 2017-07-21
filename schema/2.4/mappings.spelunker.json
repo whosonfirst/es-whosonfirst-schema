@@ -141,6 +141,34 @@
 			"type":           "double"
                     }
 		}},
+		{ "min_latitude": {
+                    "match":              "*:min_latitude", 
+                    "match_mapping_type": "double",
+                    "mapping": {
+			"type":           "double"
+                    }
+		}},
+		{ "min_longitude": {
+                    "match":              "*:min_longitude", 
+                    "match_mapping_type": "double",
+                    "mapping": {
+			"type":           "double"
+                    }
+		}},
+		{ "max_latitude": {
+                    "match":              "*:max_latitude", 
+                    "match_mapping_type": "double",
+                    "mapping": {
+			"type":           "double"
+                    }
+		}},
+		{ "max_longitude": {
+                    "match":              "*:max_longitude", 
+                    "match_mapping_type": "double",
+                    "mapping": {
+			"type":           "double"
+                    }
+		}},
 		{ "misc": {
                     "match":              "misc:*", 
                     "match_mapping_type": "string",
@@ -437,6 +465,9 @@
 		    "type" : "long"
 		},
 		"wof:scale" : {
+		    "type" : "long"
+		},
+		"wof:superseded_by" : {
 		    "type" : "long"
 		},
 		"wof:supersedes" : {
