@@ -241,6 +241,18 @@
 		    "analyzer": "english_with_emoji",
 		    "search_analyzer": "english_with_emoji"
 		},
+		"etdf:cessation": {
+		    "type": "string"
+		},
+		"etdf:deprecated": {
+		    "type": "string"
+		},
+		"etdf:inception": {
+		    "type": "string"
+		},
+		"etdf:superseded": {
+		    "type": "string"
+		},
 		"geom:area" : {
 		    "type" : "double"
 		},
