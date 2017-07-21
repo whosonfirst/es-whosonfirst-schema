@@ -76,6 +76,7 @@
 		{ "edtf": {
                     "match":              "edtf:*", 
                     "match_mapping_type": "string",
+		    "date_detection": false,
                     "mapping": {
 			"type":           "string"
                     }
