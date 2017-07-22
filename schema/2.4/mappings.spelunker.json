@@ -75,7 +75,7 @@
 		}},
 		{ "edtf": {
                     "match":              "edtf:*", 
-                    "match_mapping_type": "string",
+                    "match_mapping_type": "*",
 		    "date_detection": false,
                     "mapping": {
 			"type":           "string"
@@ -241,18 +241,6 @@
 		    "type" : "string",
 		    "analyzer": "english_with_emoji",
 		    "search_analyzer": "english_with_emoji"
-		},
-		"etdf:cessation": {
-		    "type": "string"
-		},
-		"etdf:deprecated": {
-		    "type": "string"
-		},
-		"etdf:inception": {
-		    "type": "string"
-		},
-		"etdf:superseded": {
-		    "type": "string"
 		},
 		"geom:area" : {
 		    "type" : "double"
