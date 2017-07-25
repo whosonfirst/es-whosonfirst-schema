@@ -56,6 +56,14 @@
     "mappings" : {
 	"_default_": {
 	    "dynamic_templates": [
+		{ "edtf": {
+                    "match":              "edtf:*", 
+                    "match_mapping_type": "*",
+		    "date_detection": false,
+                    "mapping": {
+			"type":           "string"
+                    }
+		}}
 	    ],
 	    "properties" : {
 		"wof:brand_id" : {
@@ -73,6 +81,15 @@
 		},
 		"wof:lastmodified" : {
 		    "type" : "long"
+		},
+		"wof:superseded_by" : {
+		    "type" : "long"
+		},
+		"wof:supersedes" : {
+		    "type" : "long"
+		},
+		"mz:is_current" : {
+		    "type" : "byte"
 		},
 		"names_autocomplete": {
 		    "type": "string",
