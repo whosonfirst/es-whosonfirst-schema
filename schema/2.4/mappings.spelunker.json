@@ -4,7 +4,7 @@
 	  "char_filter": {
               "zwj_char_filter": {
 		  "type": "mapping",
-		  "mappings": [ 
+		  "mappings": [
 		      "\\u200D=>"
 		  ]
               }
@@ -12,7 +12,7 @@
 	  "filter": {
               "english_emoji": {
 		  "type": "synonym",
-		  "synonyms_path": "synonyms/cldr-emoji-annotation-synonyms-en.txt" 
+		  "synonyms_path": "synonyms/cldr-emoji-annotation-synonyms-en.txt"
               },
               "punctuation_filter": {
 		  "type": "pattern_replace",
@@ -52,7 +52,7 @@
 	      "autocomplete":{
 		  "type":"custom",
 		  "tokenizer":"standard",
-		  "filter":[ "standard", "lowercase", "stop", "kstem", "ngram" ] 
+		  "filter":[ "standard", "lowercase", "stop", "kstem", "ngram" ]
 	      }
 	  },
 	  "tokenizer": {
@@ -67,14 +67,14 @@
 	"_default_": {
 	    "dynamic_templates": [
 		{ "counts": {
-                    "match":              "count*", 
+                    "match":              "count*",
                     "match_mapping_type": "long",
                     "mapping": {
 			"type":           "long"
                     }
 		}},
 		{ "edtf": {
-                    "match":              "edtf:*", 
+                    "match":              "edtf:*",
                     "match_mapping_type": "*",
 		    "date_detection": false,
                     "mapping": {
@@ -82,14 +82,14 @@
                     }
 		}},
 		{ "fsgov": {
-                    "match":              "fsgov:*", 
+                    "match":              "fsgov:*",
                     "match_mapping_type": "string",
                     "mapping": {
 			"type":           "string"
                     }
 		}},
 		{ "names_x_preferred": {
-                    "match":              "name:*_x_preferred", 
+                    "match":              "name:*_x_preferred",
                     "match_mapping_type": "string",
                     "mapping": {
 			"type":           "string",
@@ -97,7 +97,7 @@
                     }
 		}},
 		{ "names_x_variant": {
-                    "match":              "name:*_x_variant", 
+                    "match":              "name:*_x_variant",
                     "match_mapping_type": "string",
                     "mapping": {
 			"type":           "string",
@@ -105,7 +105,7 @@
                     }
 		}},
 		{ "names_x_colloquial": {
-                    "match":              "name:*_x_colloquial", 
+                    "match":              "name:*_x_colloquial",
                     "match_mapping_type": "string",
                     "mapping": {
 			"type":           "string",
@@ -113,7 +113,7 @@
                     }
 		}},
 		{ "names_x_unknown": {
-                    "match":              "name:*_x_unknown", 
+                    "match":              "name:*_x_unknown",
                     "match_mapping_type": "string",
                     "mapping": {
 			"type":           "string",
@@ -121,7 +121,7 @@
                     }
 		}},
 		{ "names_x_all": {
-                    "match":              "name:*_x_*", 
+                    "match":              "name:*_x_*",
                     "match_mapping_type": "string",
                     "mapping": {
 			"type":           "string",
@@ -129,63 +129,63 @@
                     }
 		}},
 		{ "latitude": {
-                    "match":              "*:latitude", 
+                    "match":              "*:latitude",
                     "match_mapping_type": "double",
                     "mapping": {
 			"type":           "double"
                     }
 		}},
 		{ "longitude": {
-                    "match":              "*:longitude", 
+                    "match":              "*:longitude",
                     "match_mapping_type": "double",
                     "mapping": {
 			"type":           "double"
                     }
 		}},
 		{ "min_latitude": {
-                    "match":              "*:min_latitude", 
+                    "match":              "*:min_latitude",
                     "match_mapping_type": "double",
                     "mapping": {
 			"type":           "double"
                     }
 		}},
 		{ "min_longitude": {
-                    "match":              "*:min_longitude", 
+                    "match":              "*:min_longitude",
                     "match_mapping_type": "double",
                     "mapping": {
 			"type":           "double"
                     }
 		}},
 		{ "max_latitude": {
-                    "match":              "*:max_latitude", 
+                    "match":              "*:max_latitude",
                     "match_mapping_type": "double",
                     "mapping": {
 			"type":           "double"
                     }
 		}},
 		{ "max_longitude": {
-                    "match":              "*:max_longitude", 
+                    "match":              "*:max_longitude",
                     "match_mapping_type": "double",
                     "mapping": {
 			"type":           "double"
                     }
 		}},
 		{ "misc": {
-                    "match":              "misc:*", 
+                    "match":              "misc:*",
                     "match_mapping_type": "string",
                     "mapping": {
 			"type":           "string"
                     }
 		}},
 		{ "quattroshapes": {
-                    "match":              "qs:*", 
+                    "match":              "qs:*",
                     "match_mapping_type": "string",
                     "mapping": {
 			"type":           "string"
                     }
 		}},
 		{ "zetashapes": {
-                    "match":              "zs:*", 
+                    "match":              "zs:*",
                     "match_mapping_type": "string",
                     "mapping": {
 			"type":           "string"
@@ -274,6 +274,24 @@
 		    "search_analyzer": "keyword",
 		    "copy_to": [ "categories_all", "machinetags_all" ]
 		},
+        "ne:code_hasc": {
+            "type": "string"
+        },
+        "ne:iso_3166_2": {
+            "type": "string"
+        },
+        "ne:iso_a2": {
+            "type": "string"
+        },
+        "ne:iso_a3": {
+            "type": "string"
+        },
+        "ne:wb_a2": {
+            "type": "string"
+        },
+        "ne:wb_a3": {
+            "type": "string"
+        },
 		"mz:is_current" : {
 		    "type" : "byte"
 		},
