@@ -1,0 +1,278 @@
+{
+    "settings": {
+	"analysis": {
+	    "char_filter": {
+		"zwj_char_filter": {
+		    "type": "mapping",
+		    "mappings": [ 
+			"\\u200D=>"
+		    ]
+		}
+	    },
+	    "filter": {
+		"punctuation_filter": {
+		    "type": "pattern_replace",
+		    "pattern": "\\p{Punct}|\\uFE0E|\\uFE0F|\\uD83C\\uDFFB|\\uD83C\\uDFFC|\\uD83C\\uDFFD|\\uD83C\\uDFFE|\\uD83C\\uDFFF",
+		    "replace": ""
+		},
+		"remove_empty_filter": {
+		    "type": "length",
+		    "min": 1
+		},
+		"snowball_eng" : {
+                    "type" : "snowball",
+                    "language" : "English"
+		},
+		"ngram":{
+		    "type":"ngram",
+		    "min_gram":3,
+		    "max_gram":4
+		}
+	    },
+	    "analyzer": {
+		"default": {
+		    "type": "simple"
+		},		
+		"default_search": {
+		    "type": "whitespace"
+		},
+		"keyword": {
+		    "tokenizer": "keyword",
+		    "filter": [
+			"lowercase",
+			"punctuation_filter",
+			"remove_empty_filter"
+		    ]
+		},
+		"english": {
+		    "char_filter": "zwj_char_filter",
+		    "tokenizer": "whitespace",
+		    "filter": [
+			"lowercase",
+			"punctuation_filter",
+			"remove_empty_filter",
+			"snowball_eng"
+		    ]
+		},
+		"machinetag-path-analyzer": {
+		    "type": "custom",
+		    "tokenizer": "machinetag-path-tokenizer"
+		}
+	    },
+	    "tokenizer": {
+		"machinetag-path-tokenizer": {
+		    "type": "path_hierarchy",
+		    "delimiter": "/"
+		}
+	    }
+	}
+    },
+    "mappings": {
+	"dynamic_templates":[
+	    { "concordances": {
+		"match": "wof:concordances.*",
+                "match_mapping_type": "*",
+                "mapping": {
+		    "type": "keyword",
+		    "index": true
+                }
+	    }},		
+	    { "country": {
+		"match": "*:country",
+                "match_mapping_type": "*",
+                "mapping": {
+		    "type": "keyword",
+		    "index": true
+                }
+	    }},		
+	    { "edtf": {
+                "match":              "edtf:*", 
+                "match_mapping_type": "*",
+                "mapping": {
+		    "type":           "text",
+		    "copy_to":       [ "search" ]
+                }
+	    }},
+	    { "iata": {
+                "match":              "iata:*", 
+                "match_mapping_type": "string",
+                "mapping": {
+		    "type":           "text",
+		    "copy_to":       [ "search" ]
+                }
+	    }},
+	    { "icao": {
+                "match":              "icao:*", 
+                "match_mapping_type": "string",
+                "mapping": {
+		    "type":           "text",
+		    "copy_to":       [ "search" ]
+                }
+	    }},
+	    { "latitude": {
+                "match":              "*:*latitude", 
+                "match_mapping_type": "*",
+                "mapping": {
+		    "type":           "float"
+                }
+	    }},
+	    { "longitude": {
+                "match":              "*:*longitude", 
+                "match_mapping_type": "*",
+                "mapping": {
+		    "type":           "float"
+                }
+	    }},
+	    { "mz_zoom": {
+                "match":              "mz:*zoom", 
+                "match_mapping_type": "*",
+                "mapping": {
+		    "type":           "long"
+                }
+	    }},
+	    { "names_x_preferred": {
+                "match":              "name:*_x_preferred", 
+                "match_mapping_type": "string",
+                "mapping": {
+		    "type":           "text",
+		    "copy_to":       [ "names_preferred", "search" ]
+                }
+	    }},
+	    { "names_x_variant": {
+                "match":              "name:*_x_variant", 
+                "match_mapping_type": "string",
+                "mapping": {
+		    "type":           "text",
+		    "copy_to":       [ "names_alt", "names_variant", "search" ]
+                }
+	    }},
+	    { "names_x_colloquial": {
+                "match":              "name:*_x_colloquial", 
+                "match_mapping_type": "string",
+                "mapping": {
+		    "type":           "text",
+		    "copy_to":       [ "names_alt", "names_colloquial", "search" ]
+                }
+	    }},
+	    { "names_x_unknown": {
+                "match":              "name:*_x_unknown", 
+                "match_mapping_type": "string",
+                "mapping": {
+		    "type":           "text",
+		    "copy_to":       "names_alt"
+                }
+	    }},
+	    { "names_x_all": {
+                "match":              "name:*_x_*", 
+                "match_mapping_type": "string",
+                "mapping": {
+		    "type":           "text",
+		    "copy_to":       [ "names_all", "names_autocomplete", "search" ]
+                }
+	    }},
+	    { "wof_id": {
+                "match":              "wof:*_id", 
+                "match_mapping_type": "*",
+                "mapping": {
+		    "type":           "long"
+                }
+	    }}
+	],
+        "properties": {
+	    "edtf:date": {
+		"type": "text",
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
+		    }
+		}
+	    },
+	    "geometry": {
+                "type": "geo_shape"
+	    },
+	    "media:properites":{ "properties": { 
+		"photo_info": { "properties": {
+		    "tags": { "properties": {
+			"tag": { "properties": {
+			    "machine_tag": {
+				"type": "boolean"
+			    }
+			}}
+		    }}
+		}}
+            }},	    
+	    "placetypes_all" : {
+		"type" : "text",
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
+		    }
+		}
+	    },
+	    "search": {
+		"type": "text",
+		"analyzer": "english",
+		"search_analyzer": "english"
+	    },
+	    "src:population_date": {
+		"type": "text"
+	    },
+	    "statoids:as_of_date": {
+		"type": "text"
+	    },
+	    "wof:concordances": { "properties": {
+		"iata:code": {
+		    "type": "text",
+		    "fielddata": true,
+		    "fields": {
+			"keyword": {
+			    "type": "keyword"
+			}
+		    }
+		},
+		"icao:code": {
+		    "type": "text",
+		    "fielddata": true,
+		    "fields": {
+			"keyword": {
+			    "type": "keyword"
+			}
+		    }
+		}
+	    }},
+	    "wof:concordances_sources": {
+		"type": "text",
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
+		    }
+		}
+	    },
+	    "wof:name" : {
+		"type" : "text",
+		"analyzer": "english",
+		"search_analyzer": "english",
+		"copy_to" : [ "names_all", "name_not_analyzed", "names_autocomplete", "search" ],
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
+		    }
+		}
+	    },
+	    "wof:placetype" : {
+		"type" : "text",
+		"copy_to" : [ "placetypes_all", "search" ],
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
+		    }
+		}
+	    }
+	}
+    }
+}
